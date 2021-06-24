@@ -5,20 +5,29 @@
 1. Getting started with Linux
    - What is a Linux?
    - Ubuntu interface
-   - Basic commands
+   - Performing task on Ubuntu
 3. Basic robot operating system (ROS)
    - What is ROS?
    - ROS concept
 
 ## Getting started with Linux
 ### What is Linux?
-> [**Linux**](https://www.linux.com/what-is-linux/) is an open-source Unix-like OS that manages communication between hardward and software, since Linux is an open-source, many distributions(versions) have been developed, one of the most popular one is [**Ubuntu**](https://ubuntu.com/) we use today.
+[**Linux**](https://www.linux.com/what-is-linux/) is an open-source Unix-like OS that manages communication between hardward and software, since Linux is an open-source, many distributions(versions) have been developed, one of the most popular one is [**Ubuntu**](https://ubuntu.com/) we use today.
 
 <p align="center">
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/interface.png" width="400" height="300">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-logo.png" width="150" height="150">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-logo.png" width="120" height="120">
 </p>
 
 ### Ubuntu interface
-> there is not much of GUI in Ubuntu, it is simple where you can work on but if you want to customize your GUI you can tweak using [tweak](https://linuxconfig.org/how-to-install-tweak-tool-on-ubuntu-18-04-bionic-beaver-linux) and [GNOME Shell Extension](https://extensions.gnome.org/)
+Desktop elements
+  - asd
+  - 
+File system level on ubuntu
+  - asd
+  - 
 
+### Performing tasks on Ubuntu
+As a developer, most of time we spend on ubuntu doing tasks will use what we called **terminal**, terminal is a power tool that gives us ability to
+  - Navigating
+  - Manipulating
