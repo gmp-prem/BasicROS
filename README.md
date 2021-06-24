@@ -9,3 +9,5 @@
 3. Basic robot operating system (ROS)
    - What is ROS?
    - ROS concept
+
+## Getting started with Linux
