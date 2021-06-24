@@ -1,4 +1,4 @@
-# ROS tutorial
+# ROS Tutorial
 > Tutorial for beginner who wants to start using ROS on Ubuntu
 
 ## Topics
