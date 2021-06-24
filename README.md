@@ -25,8 +25,9 @@ Desktop elements
   - asd
   - 
 File system level on ubuntu
-  - asd
-  - 
+   it is very important to understand the file system level on Ubuntu since you are going to work with it, many times you will use the terminal to access and manipulate your files, the picture shown below is the main file system level of Ubuntu that you should know
+   
+:running:
 
 ### Performing tasks on Ubuntu
 **Shell** is a command-line interface that interprets what should the ubuntu perform from command of user, there are many shells out there but the default one of ubuntu is Bourne-Again shell or bash
@@ -38,7 +39,7 @@ As a developer, most of time we spend on ubuntu doing tasks will use what we cal
   - Access other devices
   - More++
 
-You can start using **shell** or **terminal** by go to a launcher and type the following word and enter
+You can start using **command prompt** or **terminal** by go to a launcher and type the following word and enter
 ```
 terminal
 ```
