@@ -10,7 +10,7 @@
    - What is ROS?
    - ROS concept
 
-## 1. Getting started with Linux
+## Getting started with Linux
 ### What is Linux?
 > [**Linux**](https://www.linux.com/what-is-linux/) is an open-source Unix-like OS that manages communication between hardward and software, since Linux is an open-source, many distributions(versions) have been developed, one of the most popular one is [**Ubuntu**](https://ubuntu.com/) we use today.
 
@@ -20,5 +20,5 @@
 </p>
 
 ### Ubuntu interface
-
+> there is not much of GUI in Ubuntu, it is simple where you can work on but if you want to customize your GUI you can tweak using [tweak](https://linuxconfig.org/how-to-install-tweak-tool-on-ubuntu-18-04-bionic-beaver-linux) and [GNOME Shell Extension](https://extensions.gnome.org/)
 
