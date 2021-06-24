@@ -1,5 +1,5 @@
 # Robot operating system (ROS) 
-> Tutorial for beginner who wants to start using ROS on Linux OS
+> Tutorial for beginner who wants to start using ROS on Ubuntu
 
 ## Topics
 1. Getting started with Linux
