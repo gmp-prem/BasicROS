@@ -21,13 +21,15 @@
 </p>
 
 ### Ubuntu interface
-Desktop elements
-  - asd
-  - 
-File system level on ubuntu
-   it is very important to understand the file system level on Ubuntu since you are going to work with it, many times you will use the terminal to access and manipulate your files, the picture shown below is the main file system level of Ubuntu that you should know
-   
-:running:
+**Desktop elements**
+
+INSERT DESKTOP AND LAUNCHPAD IMAGE
+
+**File system level on ubuntu**
+
+it is very important to understand the file system level on Ubuntu since you are going to work with it, many times you will use the terminal to access and manipulate your files, the picture shown below is the main file system level of Ubuntu that you should know
+
+INSERT FILE SYSTEM LEVEL IMAGE
 
 ### Performing tasks on Ubuntu
 **Shell** is a command-line interface that interprets what should the ubuntu perform from command of user, there are many shells out there but the default one of ubuntu is Bourne-Again shell or bash
@@ -65,6 +67,6 @@ Since I said that terminal can be used to do navigating, manipulating, diagnosis
 
 ### Why Ubuntu on developing Robotics? :fire:
 - lightweightness, ubuntu is lightweight in its nature, ypu don't have to pay to get access, you can install along side with your existing operating system, just donwload, install and use!
-- the distro of ubuntu is a long-term support (usually 5 years)
+- the distribution of ubuntu is a long-term support (usually 5 years)
 - tons of community support, ubuntu has a great community whenever you have a problem, you could get help such as [ubuntu community](https://ubuntu.com/community) or [stackoverflow](https://stackoverflow.com/) and more communities++ out there
 
