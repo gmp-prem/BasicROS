@@ -6,6 +6,7 @@
    - What is a Linux?
    - Ubuntu interface
    - Performing task on Ubuntu
+   - Basic commands
 3. Basic robot operating system (ROS)
    - What is ROS?
    - ROS concept
@@ -31,3 +32,11 @@ File system level on ubuntu
 As a developer, most of time we spend on ubuntu doing tasks will use what we called **terminal**, terminal is a power tool that gives us ability to
   - Navigating
   - Manipulating
+  - Diagnosis
+  - Access other devices
+  - More++
+
+### Why Ubuntu on developing Robotics?
+1. lightweightness, ubuntu is lightweight in its nature, ypu don't have to pay to get access, just donwload, install and use!
+2. tons of community support, ubuntu has a great community when you have a problem, you could get help from [community](https://ubuntu.com/community) or [stackoverflow](https://stackoverflow.com/)
+3. long-term support (usually 5 years)
