@@ -14,5 +14,10 @@
 ### What is Linux?
 > [**Linux**](https://www.linux.com/what-is-linux/) is an open-source Unix-like OS that manages communication between hardward and software, since Linux is an open-source, many distributions(versions) have been developed, one of the most popular one is [**Ubuntu**](https://ubuntu.com/) we use today.
 
-<img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/interface.png" align="center" width="400" height="300">
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/interface.png" width="400" height="300">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-logo.png" width="150" height="150">
+</p>
+
+
 
