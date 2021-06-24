@@ -1,4 +1,4 @@
-# Robot operating system (ROS) 
+# ROS tutorial
 > Tutorial for beginner who wants to start using ROS on Ubuntu
 
 ## Topics
