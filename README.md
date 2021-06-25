@@ -23,7 +23,10 @@
 ### Ubuntu interface
 **Desktop elements**
 
-INSERT DESKTOP AND LAUNCHPAD IMAGE
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-desktop-edited.png" width="500" height="300">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-launchpad.png" width="500" height="300">
+</p>
 
 **File system level on ubuntu**
 
