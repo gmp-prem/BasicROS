@@ -12,7 +12,7 @@
    - ROS concept
 
 ## Getting started with Linux
-### What is Linux?
+### _What is Linux?_
 [**Linux**](https://www.linux.com/what-is-linux/) is an open-source Unix-like OS that manages communication between hardward and software, since Linux is an open-source, many distributions(versions) have been developed, one of the most popular one is [**Ubuntu**](https://ubuntu.com/) we use today.
 
 <p align="center">
@@ -20,7 +20,7 @@
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-logo.png" width="120" height="120">
 </p>
 
-### Ubuntu interface
+### _Ubuntu interface_
 **Desktop elements**
 
 <p align="center">
@@ -28,7 +28,7 @@
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-launchpad.png" width="500" height="300">
 </p>
 
-### Performing task on Ubuntu
+### _Performing task on Ubuntu_
 **Shell** is a command-line interface that interprets what should the ubuntu perform from command of user, there are many shells out there but the default one of ubuntu is Bourne-Again shell or bash
 
 As a developer, most of time we spend on ubuntu doing tasks will use what we called **terminal**, terminal is a power tool that uses shell to interprets the command and it gives us ability to
@@ -91,24 +91,26 @@ sudo apt update
 
 These are just the basic commands, if you would like to know more, here is the [link](https://www.hostinger.com/tutorials/linux-commands) to my recommend page to read about command on Linux
 
-### Why Ubuntu on developing Robotics? :fire:
+### _Why Ubuntu on developing Robotics?_ :fire:
 - lightweightness, ubuntu is lightweight in its nature, ypu don't have to pay to get access, you can install along side with your existing operating system, just donwload, install and use!
 - the distribution of ubuntu is a long-term support (usually 5 years)
 - tons of community support, ubuntu has a great community whenever you have a problem, you could get help such as [ubuntu community](https://ubuntu.com/community) or [stackoverflow](https://stackoverflow.com/) and more communities++ out there
 
 ## Basic robot operating system (ROS)
 
-### What is ROS?
+### _What is ROS?_
 Robot operating system or ROS for short, ROS is an open-source framework for developing a robotics, ROS has a simple concept and easy to understand, ROS has a lot of communities, so many engineers and researchers use this framework to develop their own works.
 
-### ROS concept
+### _ROS concept_
 
 **ROS filesystem level**
 
 ROS filesystem level is the part of the ROS that consider the filesystem on the disk, the filesystem level mainly consists of packages, metapackages and message type, service types.
 <p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosfilesystemlevel.png" width="600" height="300">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosfilesystemlevel.png" width="650" height="300">
 </p>
+
+
 
 **Let's create ROS workspace !**
 
