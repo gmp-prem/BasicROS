@@ -44,14 +44,14 @@ terminal
 or the another way is to use the short-cut which is way better and faster, just press `ctrl` + `alt` + `t`
 then your terminal should appear as shown below
 <p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/teminal_with_command.png" width="500" height="300">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-terminal.png" width="500" height="300">
 </p>
 
-You can see that on the terminal there is a `prem@prem:~$`
+You can see that on the terminal there is a `hayashi@lab:~$`
 
-`prem` is the username indicated before @ symbol
+`hayashi` is the username indicated before @ symbol
 
-`prem` is the hostname indicated after @ symbol
+`lab` is the hostname indicated after @ symbol
 
 `~` is the directory you are working on (~ or "tilt" means the home directory)
 
