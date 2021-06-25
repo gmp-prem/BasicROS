@@ -64,11 +64,27 @@ You can see that on the terminal there is a `prem@prem:~$`
 
 `$` is prompt symbol, this symbol will just tell where the command you type will begin
 
-Basic commands
-1. ls
-2. cd
-3. sudo
-4. gedit
+**Basic commands**
+
+ls, ls will list what file are in the directory you are working on
+```
+ls
+```
+
+cd, cd is the command to change the directory that you want to go to work
+```
+cd ~/Desktop
+```
+
+If you want to edit the script or text file, Ubuntu has provided us the default text editor which is called **gedit**, of course there are more text editors, some text editor gives more functionality for coding such [visual studio code](https://code.visualstudio.com/docs/setup/linux), [vim](https://www.vim.org/), [nano](https://linuxize.com/post/how-to-use-nano-text-editor/#:~:text=GNU%20nano%20is%20an%20easy,%2D8%20encoding%2C%20and%20more.) and more
+```
+gedit my_text_editor
+```
+
+sudo
+```
+sudo
+```
 
 ### Why Ubuntu on developing Robotics? :fire:
 - lightweightness, ubuntu is lightweight in its nature, ypu don't have to pay to get access, you can install along side with your existing operating system, just donwload, install and use!
