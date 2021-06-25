@@ -110,7 +110,8 @@ ROS filesystem level is the part of the ROS that consider the filesystem on the 
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosfilesystemlevel.png" width="650" height="300">
 </p>
 
-
+- [ ] ROS workspace - image + short description
+- [ ] pre-requisite to catkin build + code to install
 
 **Let's create ROS workspace !**
 
