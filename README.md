@@ -97,3 +97,16 @@ These are just the basic commands, if you would like to know more, here is the [
 - tons of community support, ubuntu has a great community whenever you have a problem, you could get help such as [ubuntu community](https://ubuntu.com/community) or [stackoverflow](https://stackoverflow.com/) and more communities++ out there
 
 ## Basic robot operating system (ROS)
+
+### What is ROS?
+Robot operating system or ROS for short, ROS is an open-source framework for developing a robotics, ROS has a simple concept and easy to understand, ROS has a lot of communities, so many engineers and researchers use this framework to develop their own works.
+
+### ROS concept
+
+**ROS filesystem level**
+
+ROS filesystem level is the part of the ROS that consider the filesystem on the disk, the filesystem level mainly consists of packages, metapackages and message type, service types
+
+**ROS Computational graph**
+
+asdasd
