@@ -24,7 +24,7 @@
 **Desktop elements**
 
 <p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-desktop-edited.png" width="500" height="300">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-desktop-edited-fixed.png" width="500" height="300">
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-launchpad.png" width="500" height="300">
 </p>
 
