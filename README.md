@@ -7,7 +7,7 @@
    - Ubuntu interface
    - Performing task on Ubuntu
    - Basic commands
-3. Basic robot operating system (ROS)
+2. Basic robot operating system (ROS)
    - What is ROS?
    - ROS concept
 
@@ -27,12 +27,6 @@
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-desktop-edited.png" width="500" height="300">
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-launchpad.png" width="500" height="300">
 </p>
-
-**File system level on ubuntu**
-
-it is very important to understand the file system level on Ubuntu since you are going to work with it, many times you will use the terminal to access and manipulate your files, the picture shown below is the main file system level of Ubuntu that you should know
-
-INSERT FILE SYSTEM LEVEL IMAGE
 
 ### Performing task on Ubuntu
 **Shell** is a command-line interface that interprets what should the ubuntu perform from command of user, there are many shells out there but the default one of ubuntu is Bourne-Again shell or bash
@@ -59,9 +53,9 @@ You can see that on the terminal there is a `prem@prem:~$`
 
 `prem` is the hostname indicated after @ symbol
 
-`~` is the directory you are working on
+`~` is the directory you are working on (~ or "tilt" means the home directory)
 
-`$` is prompt symbol, this symbol will just tell where the command you type will begin
+`$` is prompt symbol, this symbol will tell where the command you type begin
 
 **Basic commands**
 
@@ -90,13 +84,16 @@ example of sudo command, from the command below, you could see that the terminal
 apt update
 ```
 
-to use this command properly, we need to append sudo infront of the command
+to use this command properly, we need to append sudo in front of the command
 ```
 sudo apt update
 ```
+
+These are just the basic commands, if you would like to know more, here is the [link](https://www.hostinger.com/tutorials/linux-commands) to my recommend page to read about command on Linux
 
 ### Why Ubuntu on developing Robotics? :fire:
 - lightweightness, ubuntu is lightweight in its nature, ypu don't have to pay to get access, you can install along side with your existing operating system, just donwload, install and use!
 - the distribution of ubuntu is a long-term support (usually 5 years)
 - tons of community support, ubuntu has a great community whenever you have a problem, you could get help such as [ubuntu community](https://ubuntu.com/community) or [stackoverflow](https://stackoverflow.com/) and more communities++ out there
 
+## Basic robot operating system (ROS)
