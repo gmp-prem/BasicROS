@@ -64,9 +64,11 @@ You can see that on the terminal there is a `prem@prem:~$`
 
 `$` is prompt symbol, this symbol will just tell where the command you type will begin
 
-Since I said that terminal can be used to do navigating, manipulating, diagnosis, let's see what's it like
-
-
+Basic commands
+1. ls
+2. cd
+3. sudo
+4. gedit
 
 ### Why Ubuntu on developing Robotics? :fire:
 - lightweightness, ubuntu is lightweight in its nature, ypu don't have to pay to get access, you can install along side with your existing operating system, just donwload, install and use!
