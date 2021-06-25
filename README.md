@@ -34,14 +34,13 @@ it is very important to understand the file system level on Ubuntu since you are
 
 INSERT FILE SYSTEM LEVEL IMAGE
 
-### Performing tasks on Ubuntu
+### Performing task on Ubuntu
 **Shell** is a command-line interface that interprets what should the ubuntu perform from command of user, there are many shells out there but the default one of ubuntu is Bourne-Again shell or bash
 
 As a developer, most of time we spend on ubuntu doing tasks will use what we called **terminal**, terminal is a power tool that uses shell to interprets the command and it gives us ability to
   - Navigating
   - Manipulating
   - Diagnosis
-  - Access other devices
   - More++
 
 You can start using **command prompt** or **terminal** by go to a launcher and type the following word and enter
@@ -81,9 +80,19 @@ If you want to edit the script or text file, Ubuntu has provided us the default 
 gedit my_text_editor
 ```
 
-sudo
+sudo, sudo stands for superuser do, this command gives ability to be an administrator or root privileges, some files could not be directly used local, so the sudo comes into this position
 ```
 sudo
+```
+
+example of sudo command, from the command below, you could see that the terminal will warn us about the permission to update file repository
+```
+apt update
+```
+
+to use this command properly, we need to append sudo infront of the command
+```
+sudo apt update
 ```
 
 ### Why Ubuntu on developing Robotics? :fire:
