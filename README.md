@@ -112,7 +112,12 @@ ROS filesystem level is the part of the ROS that consider the filesystem on the 
 
 **Let's create ROS workspace !**
 
-To create ros workspace, first open the terminal using shortcut `ctrl` + `alt` + `t`
+To create ros workspace, first fire up the terminal using shortcut `ctrl` + `alt` + `t` or you can go open the launchpad and type terminal to open your terminal
+
+next, create the folder for your ROS workspace
+```
+mkdir -p catkin_ws/src
+```
 
 **ROS Computational graph**
 
