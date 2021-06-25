@@ -107,7 +107,7 @@ Robot operating system or ROS for short, ROS is an open-source framework for dev
 
 ROS filesystem level is the part of the ROS that consider the filesystem on the disk, the filesystem level mainly consists of packages, metapackages and message type, service types
 <p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-terminal.png" width="500" height="300">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosfilesystemlevel.png" width="500" height="300">
 </p>
 
 **ROS Computational graph**
