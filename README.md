@@ -59,12 +59,12 @@ You can see that on the terminal there is a `hayashi@lab:~$`
 
 **Basic commands**
 
-ls, ls will list what file are in the directory you are working on
+**ls**, ls will list what file are in the directory you are working on
 ```
 ls
 ```
 
-cd, cd is the command to change the directory that you want to go to work
+**cd**, cd is the command to change the directory that you want to go to work
 ```
 cd ~/Desktop
 ```
@@ -74,10 +74,7 @@ If you want to edit the script or text file, Ubuntu has provided us the default 
 gedit my_text_editor
 ```
 
-sudo, sudo stands for superuser do, this command gives ability to be an administrator or root privileges, some files could not be directly used local, so the sudo comes into this position
-```
-sudo
-```
+**sudo**, sudo stands for superuser do, this command gives ability to be an administrator or root privileges, some files could not be directly used local, so the sudo comes into this position
 
 example of sudo command, from the command below, you could see that the terminal will warn us about the permission to update file repository
 ```
@@ -140,9 +137,11 @@ Install catkin_tool package
 ```
 sudo apt-get install python-catkin-tools
 ```
+For additional info about the catkin_tool package, please visit this [link](https://catkin-tools.readthedocs.io/en/latest/index.html)
+
 Now we are ready to create our ROS workspace !
 
-To create ros workspace, first open the terminal using shortcut `ctrl` + `alt` + `t` or you can go open the launchpad and type terminal to open your terminal
+To create ros workspace, first open the terminal using shortcut `ctrl` + `alt` + `t` or you can go open the launchpad and type _terminal_ to open your terminal
 
 next, create the folder for your ROS workspace
 ```
@@ -162,7 +161,34 @@ catkin build
 ```
 - [ ] image after build
 
-your workspace is built with this command then your workspace is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build
+your workspace is built with this command then it is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build
+
+**Create the your first package**
+
+Next we will create first ROS package, first let's change directory to src in catkin_ws
+```
+cd ~/catkin_ws/src
+```
+Create a package
+```
+catkin_create_pkg my_package rospy roscpp std_msgs
+```
+Your package has created, you could check the current directory by using `ls` command, next you have to go back to catkin_ws to build your workspace
+
+`catkin_create_pkg my_package rospy roscpp std_msgs` has a form `catkin_create_pkg <package_name> [depend1] [depend2] [depend3]`
+
+- catkin_create_pkg is the command the create the package in your ROS workspace
+- package_name is the name of the package, you could name this package whatever you want
+- dependency means which package that your ROS package depends on
+
+```
+cd ..
+```
+Then
+```
+catkin build
+```
+Now you will see the terminal show that the package _my_package_ has been built
 
 **ROS Computational graph**
 
