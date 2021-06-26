@@ -117,7 +117,7 @@ ROS workspace is where you modify, build, and install catkin packages, the works
 - devel stands for development, it is where the built target is stored, after the build configuration
 - src stands for source, it is where the source file of the workspace are kept, your script file, your package that follows the rule of the filesystem level 
 <p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosworkspace.png" width="650" height="300">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosworkspace.png" width="450" height="300">
 </p>
 
 **Let's create ROS workspace !**
