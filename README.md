@@ -96,7 +96,8 @@ These are just the basic commands, if you would like to know more, here is the [
 ## Basic robot operating system (ROS)
 
 ### _What is ROS?_
-Robot operating system or ROS for short, ROS is an open-source framework for developing a robotics, ROS has a simple concept and easy to understand, ROS has a lot of communities, so many engineers and researchers use this framework to develop their own works.
+Robot operating system or [ROS](https://www.ros.org/) for short, ROS is an open-source framework for developing a robotics, ROS has a simple concept and easy to understand, ROS has a lot of communities, so many engineers and researchers use this framework to develop their own robot applications.
+
 
 ### _ROS concept_
 
