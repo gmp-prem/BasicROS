@@ -110,12 +110,39 @@ ROS filesystem level is the part of the ROS that consider the filesystem on the 
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosfilesystemlevel.png" width="650" height="300">
 </p>
 
-- [ ] ROS workspace - image + short description
-- [ ] pre-requisite to catkin build + code to install
+**ROS workspace**
+
+ROS workspace is where you modify, build, and install catkin packages, the workspace will usually contain build, devel and src folder
+- build is where the build file of the workspace is kept, all cache and information about build is here
+- devel stands for development, it is where the built target is stored, after the build configuration
+- src stands for source, it is where the source file of the workspace are kept, your script file, your package that follows the rule of the filesystem level 
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosworkspace.png" width="650" height="300">
+</p>
 
 **Let's create ROS workspace !**
 
-To create ros workspace, first fire up the terminal using shortcut `ctrl` + `alt` + `t` or you can go open the launchpad and type terminal to open your terminal
+Before create the workspace, we must install the _catkin_tool_ package which contains the build tool for our workspace
+
+Get ROS repository that contains the catkin_tool
+```
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+```
+Setup the key for the ROS repository
+```
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+```
+Update the latest version of packages from repositories
+```
+sudo apt-get update
+```
+Install catkin_tool package
+```
+sudo apt-get install python-catkin-tools
+```
+Now we are ready to create our ROS workspace !
+
+To create ros workspace, first open the terminal using shortcut `ctrl` + `alt` + `t` or you can go open the launchpad and type terminal to open your terminal
 
 next, create the folder for your ROS workspace
 ```
