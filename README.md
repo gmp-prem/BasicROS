@@ -162,7 +162,7 @@ catkin build
 ```
 - [ ] image after build
 
-your workspace is built with this command then your workspace is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build 
+your workspace is built with this command then your workspace is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build
 
 **ROS Computational graph**
 
