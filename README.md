@@ -208,6 +208,7 @@ For additional info about creating ROS package, please visit this [link](http://
 
 - [ ] explain concept of computational graph
 - [ ] image of concept
+- [ ] ROS message
 - [ ] publisher/subscriber
 
 **ROS Visualization tool**
