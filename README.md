@@ -174,12 +174,13 @@ Create a package
 catkin_create_pkg my_package rospy roscpp std_msgs
 ```
 Your package has created, you could check the current directory by using `ls` command, next you have to go back to catkin_ws to build your workspace
+- [ ] image after enter above create package command
 
 `catkin_create_pkg my_package rospy roscpp std_msgs` has a form `catkin_create_pkg <package_name> [depend1] [depend2] [depend3]`
 
 - catkin_create_pkg is the command the create the package in your ROS workspace
 - package_name is the name of the package, you could name this package whatever you want
-- dependency means which package that your ROS package depends on
+- dependency means ROS packages that your package depends on
 
 ```
 cd ..
@@ -189,6 +190,7 @@ Then
 catkin build
 ```
 Now you will see the terminal show that the package _my_package_ has been built
+- [ ] image after build the workspace
 
 **ROS Computational graph**
 
