@@ -121,7 +121,7 @@ ROS workspace is where you modify, build, and install catkin packages, the works
 
 Before create the workspace, we must install the _catkin_tool_ package which contains the build tool for our workspace
 
-Get ROS repository that contains the catkin_tool
+Open up your terminal using `ctrl` + `alt` + `t`, and get ROS repository that contains the catkin_tool
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
 ```
@@ -141,7 +141,7 @@ For additional info about the catkin_tool package, please visit this [link](http
 
 Now we are ready to create our ROS workspace !
 
-To create ros workspace, first open the terminal using shortcut `ctrl` + `alt` + `t` or you can go open the launchpad and type _terminal_ to open your terminal
+To create ROS workspace, open the terminal using shortcut `ctrl` + `alt` + `t` or you can go open the launchpad and type _terminal_ to open your terminal
 
 next, create the folder for your ROS workspace
 ```
@@ -162,6 +162,13 @@ catkin build
 - [ ] image after build
 
 your workspace is built with this command then it is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build
+
+After the workspace has created, we will source our workspace to bashrc file (we will skip this detail for now), let's go back to home directory and type this command on your terminal
+```
+cd && echo "source ~/catkin_ws/devel/setup.sh" >> ~/.bashrc && source ~/.bashrc
+```
+
+For additional info about creating ROS workspace, please visit this [link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
 
 **Create the your first package**
 
@@ -189,8 +196,10 @@ Then
 ```
 catkin build
 ```
-Now you will see the terminal show that the package _my_package_ has been built
+Now you will see the terminal shows that the package _my_package_ has been built
 - [ ] image after build the workspace
+
+For additional info about creating ROS package, please visit this [link](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 
 **ROS Computational graph**
 
