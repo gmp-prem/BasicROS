@@ -206,4 +206,11 @@ For additional info about creating ROS package, please visit this [link](http://
 
 **ROS Computational graph**
 
-asdasd
+- [ ] explain concept of computational graph
+- [ ] image of concept
+- [ ] publisher/subscriber
+
+**ROS Visualization tool**
+
+- [ ] explain what rviz is?
+- [ ] example?
