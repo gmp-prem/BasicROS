@@ -146,8 +146,23 @@ To create ros workspace, first open the terminal using shortcut `ctrl` + `alt` +
 
 next, create the folder for your ROS workspace
 ```
-mkdir -p catkin_ws/src
+mkdir -p ~/catkin_ws/src
 ```
+- [ ] image of folder created on home directory
+
+Go to the catkin_ws directory
+```
+cd catkin_ws
+```
+- [ ] image before build
+
+Build your ROS workspace 
+```
+catkin build
+```
+- [ ] image after build
+
+your workspace is built with this command then your workspace is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build 
 
 **ROS Computational graph**
 
