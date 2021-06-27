@@ -1,82 +1,140 @@
-# Learn ROS with Turtlebot3 Simulation
-* Ubuntu Version : 18.xx
-* ROS Version : melodic
-## Installation
-### Install with apt-get command
-Follow the official quick start guide 
+# Sending Goals to Turtlebot3 Navigation Stack
+>Adapted From Sending Goals to the Navigation Stack - Python ROS node version
 
->[Turtlebot3 Quick Start Guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
+## Navigation Stack --> navigation-ROSwiki
+<p align="center">
+<img src="https://user-images.githubusercontent.com/86387081/123408785-5fb8af00-d5e8-11eb-9712-c77ad8606a31.png" width="640" height="360" />
+</p>
 
-### Building from Source
-1. Clone main respiratory →ROS packages for Turtlebot3 (github.com)
+This tutorial will teach you how to send the simple goal to move_base node with python code.
+## ActionLib --> AcionLib-ROSwiki
+* goal
+* result
+* feedback
+## Try it yourself
+0.Launch Turtlebot Simulation and Navigation
 ```
 cd ~/your_ws/src
-git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
+catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
 ```
-2. Clone simulation package → Simulations for TurtleBot3 (github.com)
+
+1. Create new package
 ```
-git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+cd ~/your_ws/src
+catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
 ```
-3. Build the loaded packages
+2. Make scripts folder in src of the beginner_tutorials package
 ```
-cd ~/your_ws
-catkin build
+cd ./beginner_tutorials
+mkdir scripts
 ```
+3. Put the following code in to ~/your_ws/src/beginner_tutorials/scripts
+```
+#!/usr/bin/env python
+# license removed for brevity
+
+import rospy
+
+# Brings in the SimpleActionClient
+import actionlib
+# Brings in the .action file and messages used by the move base action
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from geometry_msgs.msg import PoseStamped
+
+
+class Turtlebot3():
+  def __init__(self, test_move = False):
+    # For movebase
+    # Create an action client called "move_base" with action definition file "MoveBaseAction"
+    self.client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
+
+    # Waits until the action server has started up and started listening for goals.
+    self.client.wait_for_server()
+
+
+  def trajectory_execute(self,pose): 
+      
+    self.group.set_pose_target(pose, end_effector_link="tool_ee_link")
+    self.group.go(wait=True)
+    self.group.stop()
+    self.group.clear_pose_targets()
+
+  def get_movebaseGoal_from(self,target_list):
+    goal = MoveBaseGoal()
+    goal.target_pose.header.frame_id = "map"
+    goal.target_pose.header.stamp = rospy.Time.now()
+    goal.target_pose.pose.position.x = target_list[0]
+    goal.target_pose.pose.position.y = target_list[1]
+    goal.target_pose.pose.position.z = target_list[2]
+
+    goal.target_pose.pose.orientation.w = 1.0
+    return goal
 
 
 
-***
-**In case some package is missing,Use rosdep and build again**
 
+  def commander(self):
+    print("process start")
+    while not rospy.is_shutdown():
+        print("Enter target spearated with comma")
+        target = input()
+        movebaseGoal = self.get_movebaseGoal_from(target)
+        self.client.send_goal(movebaseGoal)
+        # Waits for the server to finish performing the action.
+        wait = self.client.wait_for_result()
+        # If the result doesn't arrive, assume the Server is not available
+        if not wait:
+            rospy.loger("Action server not available!")
+            rospy.signal_shutdown("Action server not available!")
+        else:
+        # Result of executing the action
+            print("Goal Reached")
+        
 
-Install rosdep → rosdep - ROS Wiki
+if __name__ == '__main__':
+    try:
+        rospy.init_node('spaghetti_grasping_rgbd_execute', anonymous=True)
+        turtle = Turtlebot3()
+        turtle.commander()
+    except rospy.ROSInterruptException:
+        pass
+    
 
 ```
-sudo apt-get install python-rosdep
+4. make the file executable
 ```
-Install dependency of all packages in the workspace
+cd ~/your_ws/src/beginner_tutorials/scripts
+chmod +x ./yourfilename.py
 ```
-rosdep install --from-paths src --ignore-src -r -y
+5. run the commander script
 ```
-
-***
-
-5. Source your workspace ***very important***
-```
-source ~/.bashrc
-```
-
-6. Export robot model
-```
-code ~/.bashrc
-```
-At the end of the .bashrc, add
->export TURTLEBOT3_MODEL=burger
-
-7. source again
-```
-source ~/.bashrc
-```
-
-8.
-```
-roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
-```
-
-<p align="center">
-<img  src="https://user-images.githubusercontent.com/86387081/123275201-16605500-d53f-11eb-8d82-794475e67cc1.png" width="600" height="600"  />
-</p>
-
-## How to move the robot?
-Run Teleop Node
-```
-roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
-```
-Check the communication between ROS node
-```
-rqt_graph
+rosrun beginner_tutorials yourfilename.py
 ```
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/86387081/123276239-f41b0700-d53f-11eb-936c-c93ca759ef30.png" width="720" height="720" />
-</p>
+## Your Homework
+Make a publisher node publishing PoseStamped message to this commander node
+```
+def commander(self):
+    print("process start")
+    while not rospy.is_shutdown():
+        print("Enter target spearated with comma")
+
+        #target = input() # <--- Change This
+        target = rospy.wait_for_message("your_topic", PoseStamped) # <--- To This
+
+
+        #movebaseGoal = self.get_movebaseGoal_from(target) #<-- Do not need this anymore
+
+        self.client.send_goal(target) #<-- Can pass target directly since target is now PoseStamped
+
+        # Waits for the server to finish performing the action.
+        wait = self.client.wait_for_result()
+        # If the result doesn't arrive, assume the Server is not available
+        if not wait:
+            rospy.loger("Action server not available!")
+            rospy.signal_shutdown("Action server not available!")
+        else:
+        # Result of executing the action
+            print("Goal Reached")
+```
+
