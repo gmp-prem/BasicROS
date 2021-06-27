@@ -1,5 +1,5 @@
 # Sending Goals to Turtlebot3 Navigation Stack
->Adapted From Sending Goals to the Navigation Stack - Python ROS node version
+>Adapted From Sending Goals to the Navigation Stack --> https://hotblackrobotics.github.io/en/blog/2018/01/29/action-client-py/
 
 ## Navigation Stack --> navigation-ROSwiki
 <p align="center">
@@ -14,8 +14,8 @@ This tutorial will teach you how to send the simple goal to move_base node with 
 ## Try it yourself
 0.Launch Turtlebot Simulation and Navigation
 ```
-cd ~/your_ws/src
-catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 ```
 
 1. Create new package
