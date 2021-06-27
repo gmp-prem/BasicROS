@@ -117,7 +117,7 @@ ROS workspace is where you modify, build, and install catkin packages, the works
 - devel stands for development, it is where the built target is stored, after the build configuration
 - src stands for source, it is where the source file of the workspace are kept, your script file, your package that follows the rule of the filesystem level 
 <p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosworkspace.png" width="450" height="300">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosworkspace.png" width="500" height="300">
 </p>
 
 **Let's create ROS workspace !**
@@ -150,19 +150,26 @@ next, create the folder for your ROS workspace
 ```
 mkdir -p ~/catkin_ws/src
 ```
-- [ ] image of folder created on home directory
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-01.png" width="500" height="275">
+</p>
 
 Go to the catkin_ws directory
 ```
 cd catkin_ws
 ```
-- [ ] image before build
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-02.png" width="500" height="275">
+</p>
 
 Build your ROS workspace 
 ```
 catkin build
 ```
-- [ ] image after build
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-03.png" width="500" height="275">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-04.png" width="500" height="275">
+</p>
 
 your workspace is built with this command then it is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build
 
