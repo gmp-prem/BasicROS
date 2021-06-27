@@ -112,7 +112,7 @@ rosrun beginner_tutorials yourfilename.py
 ```
 
 ## Your Homework
-Make a publisher node publishing PoseStamped message to this commander node
+Make a publisher node publishing Pose message to this commander node
 
 
 <p align="center">
@@ -129,7 +129,7 @@ def commander(self):
         target = rospy.wait_for_message("your_topic", PoseStamped) # <--- To This
 
 
-        #movebaseGoal = self.get_movebaseGoal_from(target) #<-- Do not need this anymore
+        movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
 
         self.client.send_goal(target) #<-- Can pass target directly since target is now PoseStamped
 
@@ -142,5 +142,17 @@ def commander(self):
         else:
         # Result of executing the action
             print("Goal Reached")
+```            
+```
+def get_movebaseGoal_from(self,target_pose): #Now target_list become target_pose
+    goal = MoveBaseGoal()
+    goal.target_pose.header.frame_id = "map"
+    goal.target_pose.header.stamp = rospy.Time.now()
+    goal.target_pose.pose.position.x = target_pose.position.x
+    goal.target_pose.pose.position.y = target_pose.position.y
+    goal.target_pose.pose.position.z = target_pose.position.z
+
+    goal.target_pose.pose.orientation.w = target_pose.orientation.w
+    return goal
 ```
 
