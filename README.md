@@ -206,7 +206,11 @@ For additional info about creating ROS package, please visit this [link](http://
 
 **ROS Computational graph**
 
-- [ ] explain concept of computational graph
+ROS computational graph is where the data is processing in ROS workspace, this concept consist of nodes, Master, Parameter Server, messages, services, topics, and bags 
+
+
+
+
 - [ ] image of concept
 - [ ] ROS message
 - [ ] publisher/subscriber
