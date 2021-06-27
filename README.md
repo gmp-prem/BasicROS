@@ -21,11 +21,11 @@ roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 1. Create new package
 ```
 cd ~/your_ws/src
-catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
+catkin_create_pkg my_package std_msgs rospy roscpp
 ```
 2. Make scripts folder in src of the beginner_tutorials package
 ```
-cd ./beginner_tutorials
+cd ./my_package
 mkdir scripts
 ```
 3. Put the following code in to ~/your_ws/src/beginner_tutorials/scripts
@@ -108,7 +108,7 @@ chmod +x ./yourfilename.py
 ```
 5. run the commander script
 ```
-rosrun beginner_tutorials yourfilename.py
+rosrun my_package yourfilename.py
 ```
 
 ## Your Homework
