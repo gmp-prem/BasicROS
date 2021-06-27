@@ -103,7 +103,7 @@ if __name__ == '__main__':
 ```
 4. make the file executable
 ```
-cd ~/your_ws/src/beginner_tutorials/scripts
+cd ~/your_ws/src/my_package/scripts
 chmod +x ./yourfilename.py
 ```
 5. run the commander script
