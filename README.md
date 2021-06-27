@@ -42,8 +42,8 @@ rosdep install --from-paths src --ignore-src -r -y
 gedit ~/.bashrc
 ```
 In .bashrc, add
->source ~/your_ws/devel/setup.sh
->export TURTLEBOT3_MODEL=burger
+- source ~/your_ws/devel/setup.sh
+- export TURTLEBOT3_MODEL=burger
 
 7. source the bash script or re-open the terminal
 ```
