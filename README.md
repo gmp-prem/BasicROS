@@ -119,6 +119,8 @@ Make a publisher node publishing Pose message to this commander node
 <img src="https://user-images.githubusercontent.com/55285546/123536339-b5b26180-d764-11eb-8ce9-0a2f293f54b0.png"  />
 </p>
 
+Edit commander node to subscribe Pose message as follow
+
 ```
 def commander(self):
     print("process start")
