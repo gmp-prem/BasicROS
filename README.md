@@ -186,12 +186,19 @@ Next we will create first ROS package, first let's change directory to src in ca
 ```
 cd ~/catkin_ws/src
 ```
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-05.png" width="500" height="275">
+</p>
+
 Create a package
 ```
 catkin_create_pkg my_package rospy roscpp std_msgs
 ```
 Your package has created, you could check the current directory by using `ls` command, next you have to go back to catkin_ws to build your workspace
-- [ ] image after enter above create package command
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-06.png" width="500" height="275">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-07.png" width="500" height="275">
+</p>
 
 `catkin_create_pkg my_package rospy roscpp std_msgs` has a form `catkin_create_pkg <package_name> [depend1] [depend2] [depend3]`
 
