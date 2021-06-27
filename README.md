@@ -113,6 +113,12 @@ rosrun beginner_tutorials yourfilename.py
 
 ## Your Homework
 Make a publisher node publishing PoseStamped message to this commander node
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/55285546/123536339-b5b26180-d764-11eb-8ce9-0a2f293f54b0.png"  />
+</p>
+
 ```
 def commander(self):
     print("process start")
