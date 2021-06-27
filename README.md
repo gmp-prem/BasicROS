@@ -173,7 +173,9 @@ catkin build
 
 your workspace is built with this command then it is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build
 
-After the workspace has created, we will source our workspace to bashrc file (we will skip this detail for now), let's go back to home directory and type this command on your terminal
+- [ ] .bashrc file? [link](https://www.journaldev.com/41479/bashrc-file-in-linux#:~:text=bashrc%20file%20is%20a%20script,won't%20show%20the%20file.)
+
+After the workspace has created, we will source our workspace to bashrc file, let's go back to home directory and type this command on your terminal
 ```
 cd && echo "source ~/catkin_ws/devel/setup.sh" >> ~/.bashrc && source ~/.bashrc
 ```
@@ -194,6 +196,7 @@ Create a package
 ```
 catkin_create_pkg my_package rospy roscpp std_msgs
 ```
+
 Your package has created, you could check the current directory by using `ls` command, next you have to go back to catkin_ws to build your workspace
 <p align="center">
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-06.png" width="500" height="275">
@@ -214,13 +217,15 @@ Then
 catkin build
 ```
 Now you will see the terminal shows that the package _my_package_ has been built
-- [ ] image after build the workspace
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-08.png" width="500" height="275">
+</p>
 
 For additional info about creating ROS package, please visit this [link](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 
 **ROS Computational graph**
 
-ROS computational graph is where the data is processing in ROS workspace, this concept consist of nodes, Master, Parameter Server, messages, services, topics, and bags 
+ROS computational graph is where the data is processing in ROS workspace, this concept consist of nodes, Master, Parameter Server, messages, services, topics, and bags. [Here](https://github.com/gmp-prem/BasicROS/blob/main/Images/roscompgraph.png) is the link to full concept of computation graph, and [Here](http://wiki.ros.org/ROS/Concepts#:~:text=services%20in%20ROS.-,ROS%20Computation%20Graph%20Level,the%20Graph%20in%20different%20ways.) is the link to full detail
 <p align="center">
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rospubsub.png" width="500" height="120">
 </p>
