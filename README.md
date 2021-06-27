@@ -207,7 +207,9 @@ For additional info about creating ROS package, please visit this [link](http://
 **ROS Computational graph**
 
 ROS computational graph is where the data is processing in ROS workspace, this concept consist of nodes, Master, Parameter Server, messages, services, topics, and bags 
-
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rospubsub.png" width="500" height="120">
+</p>
 
 
 
