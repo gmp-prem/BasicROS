@@ -41,7 +41,7 @@ rosdep install --from-paths src --ignore-src -r -y
 
 ***
 
-5. Source your workspace and Export robot model
+4. Source your workspace and Export robot model
 ```
 gedit ~/.bashrc
 ```
@@ -49,12 +49,12 @@ In .bashrc, add
 - source ~/catkin_ws/devel/setup.sh
 - export TURTLEBOT3_MODEL=burger
 
-6. source the bash script or re-open the terminal
+5. source the bash script or re-open the terminal
 ```
 source ~/.bashrc
 ```
 
-7. Launch turtlebot simulation
+6. Launch turtlebot simulation
 ```
 roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
 ```
