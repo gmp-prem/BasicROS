@@ -329,7 +329,7 @@ rosrun my_package publisher.py
 
 Run the subscriber node 
 ```
-rosrun my_package subscriber.py
+rosrun my_package listener.py
 ```
 Here you can see that in the subsciber terminal, it will show something up
 <p align="center">
