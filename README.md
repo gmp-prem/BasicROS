@@ -7,6 +7,22 @@
 
 In case 404 IP not found
 https://answers.ros.org/question/325039/apt-update-fails-cannot-install-pkgs-key-not-working/
+```
+sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy \
+  ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc \
+  ros-melodic-rgbd-launch ros-melodic-depthimage-to-laserscan \
+  ros-melodic-rosserial-arduino ros-melodic-rosserial-python \
+  ros-melodic-rosserial-server ros-melodic-rosserial-client \
+  ros-melodic-rosserial-msgs ros-melodic-amcl ros-melodic-map-server \
+  ros-melodic-move-base ros-melodic-urdf ros-melodic-xacro \
+  ros-melodic-compressed-image-transport ros-melodic-rqt* \
+  ros-melodic-gmapping ros-melodic-navigation ros-melodic-interactive-markers
+ ```
+ 
+ ```
+ sudo apt-get install ros-melodic-turtlebot3-msgs
+ ```
+ 
 
 1. Clone main package → https://github.com/ROBOTIS-GIT/turtlebot3
 ```
