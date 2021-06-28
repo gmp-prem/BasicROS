@@ -244,6 +244,9 @@ Go to scripts
 ```
 cd scripts
 ```
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosdiagram.png" width="500" height="120">
+</p>
 
 Now, we will create two python scripts for our first 2 ROS programs
 ```
