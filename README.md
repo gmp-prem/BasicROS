@@ -254,7 +254,6 @@ Since you are going to execute the script, you are gonna need to make it executa
 ```
 chmod +x publisher.py
 chmod +x listener.py
-
 ```
 
 To start editing, you could use your favorite text editer, or gedit as you would like to
@@ -289,7 +288,7 @@ import rospy
 from std_msgs.msg import String
 
 def callback(data):
-    rospy.loginfo(rospy.get_caller_id() + "I heard %s '", data.data, "'")
+    rospy.loginfo(rospy.get_caller_id() + " I heard %s ", data.data)
     
 def listener():
 
@@ -307,6 +306,7 @@ def listener():
 
 if __name__ == '__main__':
     listener()
+
 ```
 To run the code, please do the following
 ```
