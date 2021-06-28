@@ -15,7 +15,7 @@ git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 ```
 3. Build the loaded packages
 ```
-cd ~/your_ws
+cd ~/catkin_ws
 catkin build
 ```
 
