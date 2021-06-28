@@ -128,7 +128,7 @@ def commander(self):
         print("Enter target spearated with comma")
 
         #target = input() # <--- Change This
-        target = rospy.wait_for_message("your_topic", PoseStamped) # <--- To This
+        target = rospy.wait_for_message("your_topic", Pose) # <--- To This
 
 
         movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
