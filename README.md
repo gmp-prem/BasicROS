@@ -8,7 +8,7 @@
 In case 404 IP not found
 https://answers.ros.org/question/325039/apt-update-fails-cannot-install-pkgs-key-not-working/
 
-1. Clone simulation package → https://github.com/ROBOTIS-GIT/turtlebot3_msgs
+1. Clone main package → https://github.com/ROBOTIS-GIT/turtlebot3_msgs
 ```
 cd ~/catkin_ws/src
 git clone https://github.com/ROBOTIS-GIT/turtlebot3
