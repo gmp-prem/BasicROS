@@ -302,7 +302,21 @@ def listener():
 if __name__ == '__main__':
     listener()
 ```
+To run the code, please do the following
+```
+roscore
+```
 
+Run the publisher node
+```
+a
+```
+
+Run the subscriber node 
+```
+a
+```
+Here you can see that in the subsciber terminal, it will show something up
 
 **ROS Visualization tool**
 
