@@ -312,17 +312,26 @@ To run the code, please do the following
 ```
 roscore
 ```
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/roscore.png" width="500" height="300">
+</p>
 
 Run the publisher node
 ```
 rosrun my_package publisher.py
 ```
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/pub.png" width="500" height="300">
+</p>
 
 Run the subscriber node 
 ```
 rosrun my_package subscriber.py
 ```
 Here you can see that in the subsciber terminal, it will show something up
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/sub.png" width="500" height="300">
+</p>
 
 **ROS Visualization tool**
 
