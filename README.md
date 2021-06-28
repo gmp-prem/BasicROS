@@ -13,7 +13,11 @@ git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 ```
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 ```
-3. Build the loaded packages
+3. Clone simulation package → https://github.com/ROBOTIS-GIT/turtlebot3_msgs
+```
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+```
+4. Build the loaded packages
 ```
 cd ~/catkin_ws
 catkin build
@@ -45,12 +49,12 @@ In .bashrc, add
 - source ~/catkin_ws/devel/setup.sh
 - export TURTLEBOT3_MODEL=burger
 
-7. source the bash script or re-open the terminal
+6. source the bash script or re-open the terminal
 ```
 source ~/.bashrc
 ```
 
-8. Launch turtlebot simulation
+7. Launch turtlebot simulation
 ```
 roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
 ```
