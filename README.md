@@ -21,6 +21,7 @@ sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy \
  
  ```
  sudo apt-get install ros-melodic-turtlebot3-msgs
+ sudo apt-get install ros-melodic-turtlebot3
  ```
  
 
