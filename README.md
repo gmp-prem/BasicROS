@@ -4,20 +4,17 @@
 ## Installation
 
 >[Turtlebot3 Quick Start Guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
-1. Clone main respiratory → https://github.com/ROBOTIS-GIT/turtlebot3
+
+In case 404 IP not found
+https://answers.ros.org/question/325039/apt-update-fails-cannot-install-pkgs-key-not-working/
+
+
+1. Clone simulation package → https://github.com/ROBOTIS-GIT/turtlebot3_msgs
 ```
 cd ~/catkin_ws/src
-git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
-```
-2. Clone simulation package → https://github.com/ROBOTIS-GIT/turtlebot3_simulations
-```
-git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
-```
-3. Clone simulation package → https://github.com/ROBOTIS-GIT/turtlebot3_msgs
-```
 git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
 ```
-4. Build the loaded packages
+2. Build the loaded packages
 ```
 cd ~/catkin_ws
 catkin build
