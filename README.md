@@ -43,7 +43,7 @@ from geometry_msgs.msg import PoseStamped
 
 
 class Turtlebot3():
-  def __init__(self, test_move = False):
+  def __init__(self):
     # For movebase
     # Create an action client called "move_base" with action definition file "MoveBaseAction"
     self.client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
