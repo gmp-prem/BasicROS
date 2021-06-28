@@ -338,9 +338,9 @@ Here you can see that in the subsciber terminal, it will show something up
 
 **ROS Visualization tool**
 
-ROS Visulization (Rviz) is the ROS application, it provieds many advantages when you work with your robot such as robot model, sensor information, camera. Here is the link to the full description from ROS wiki
+ROS Visulization (Rviz) is the ROS application, it provieds many advantages when you work with your robot such as robot model, sensor information, camera. Here is the [link](http://wiki.ros.org/rviz/Tutorials) to the full description from ROS wiki
 <p align="center">
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rviz_plugin_head.png" width="500" height="300">
 </p>
 
-Thank you 
+Thank you very much
