@@ -27,7 +27,7 @@ sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-joy \
 1. Clone main package → https://github.com/ROBOTIS-GIT/turtlebot3
 ```
 cd ~/catkin_ws/src
-git clone https://github.com/ROBOTIS-GIT/turtlebot3
+git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3
 ```
 2. Clone simulation package → https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 ```
