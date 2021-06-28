@@ -6,7 +6,7 @@
 >[Turtlebot3 Quick Start Guide](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
 1. Clone main respiratory → https://github.com/ROBOTIS-GIT/turtlebot3
 ```
-cd ~/your_ws/src
+cd ~/catkin_ws/src
 git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 ```
 2. Clone simulation package → https://github.com/ROBOTIS-GIT/turtlebot3_simulations
@@ -42,7 +42,7 @@ rosdep install --from-paths src --ignore-src -r -y
 gedit ~/.bashrc
 ```
 In .bashrc, add
-- source ~/your_ws/devel/setup.sh
+- source ~/catkin_ws/devel/setup.sh
 - export TURTLEBOT3_MODEL=burger
 
 7. source the bash script or re-open the terminal
