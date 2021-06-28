@@ -12,7 +12,7 @@ https://answers.ros.org/question/325039/apt-update-fails-cannot-install-pkgs-key
 1. Clone simulation package → https://github.com/ROBOTIS-GIT/turtlebot3_msgs
 ```
 cd ~/catkin_ws/src
-git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 ```
 2. Build the loaded packages
 ```
