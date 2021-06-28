@@ -177,7 +177,7 @@ your workspace is built with this command then it is ready for your robot applic
 
 After the workspace has created, we will source our workspace to bashrc file, let's go back to home directory and type this command on your terminal
 ```
-cd && echo "source ~/catkin_ws/devel/setup.sh" >> ~/.bashrc && source ~/.bashrc
+cd && echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc && source ~/.bashrc
 ```
 
 For additional info about creating ROS workspace, please visit this [link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
@@ -250,6 +250,12 @@ Now, we will create two python scripts for our first 2 ROS programs
 touch publisher.py
 touch listener.py
 ```
+Since you are going to execute the script, you are gonna need to make it executable
+```
+chmod +x publisher.py
+chmod +x listener.py
+
+```
 
 To start editing, you could use your favorite text editer, or gedit as you would like to
 
@@ -309,16 +315,20 @@ roscore
 
 Run the publisher node
 ```
-a
+rosrun my_package publisher.py
 ```
 
 Run the subscriber node 
 ```
-a
+rosrun my_package subscriber.py
 ```
 Here you can see that in the subsciber terminal, it will show something up
 
 **ROS Visualization tool**
 
-- [ ] explain what rviz is?
-- [ ] example?
+ROS Visulization (Rviz) is the ROS application, it provieds many advantages when you work with your robot such as robot model, sensor information, camera. Here is the link to the full description from ROS wiki
+<p align="center">
+  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rviz_plugin_head.png" width="500" height="300">
+</p>
+
+Thank you 
