@@ -39,7 +39,7 @@ import rospy
 import actionlib
 # Brings in the .action file and messages used by the move base action
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
-from geometry_msgs.msg import PoseStamped
+
 
 
 class Turtlebot3():
@@ -133,7 +133,7 @@ def commander(self):
 
         movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
 
-        self.client.send_goal(target) #<-- Can pass target directly since target is now PoseStamped
+        self.client.send_goal(target) #<-- Can pass target directly since target is now Pose
 
         # Waits for the server to finish performing the action.
         wait = self.client.wait_for_result()
