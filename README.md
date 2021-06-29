@@ -117,7 +117,7 @@ Make a publisher node publishing Pose message to this commander node
 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/55285546/123536339-b5b26180-d764-11eb-8ce9-0a2f293f54b0.png"  />
+<img src="https://user-images.githubusercontent.com/47204875/123738266-6fcdd880-d8df-11eb-8397-c69a73f99978.png"  />
 </p>
 
 Edit commander node to subscribe Pose message as follow
