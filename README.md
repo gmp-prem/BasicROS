@@ -12,11 +12,13 @@ This tutorial will teach you how to send the simple goal to move_base node with 
 * result
 * feedback
 ## Try it yourself
-0.Launch Turtlebot Simulation and Navigation
+---
+Launch Turtlebot Simulation and Navigation
 ```
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 ```
+---
 
 1. Create new package
 ```
