@@ -158,6 +158,86 @@ def get_movebaseGoal_from(self,target_pose): #Now target_list become target_pose
     goal.target_pose.pose.orientation.w = target_pose.orientation.w
     return goal
 ```
+Full code
+```
+#!/usr/bin/env python
+# license removed for brevity
+
+import rospy
+
+# Brings in the SimpleActionClient
+import actionlib
+# Brings in the .action file and messages used by the move base action
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from geometry_msgs.msg import Pose
+
+
+class Turtlebot3():
+  def __init__(self):
+    # For movebase
+    # Create an action client called "move_base" with action definition file "MoveBaseAction"
+    self.client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
+
+    # Waits until the action server has started up and started listening for goals.
+    self.client.wait_for_server()
+
+
+  def trajectory_execute(self,pose): 
+      
+    self.group.set_pose_target(pose, end_effector_link="tool_ee_link")
+    self.group.go(wait=True)
+    self.group.stop()
+    self.group.clear_pose_targets()
+
+  def get_movebaseGoal_from(self,target_pose): #Now target_list become target_pose
+    goal = MoveBaseGoal()
+    goal.target_pose.header.frame_id = "map"
+    goal.target_pose.header.stamp = rospy.Time.now()
+    goal.target_pose.pose.position.x = target_pose.position.x
+    goal.target_pose.pose.position.y = target_pose.position.y
+    goal.target_pose.pose.position.z = target_pose.position.z
+
+    goal.target_pose.pose.orientation.w = target_pose.orientation.w
+    return goal
+
+
+
+
+    def commander(self):
+      print("process start")
+      while not rospy.is_shutdown():
+        print("Enter target spearated with comma")
+
+        #target = input() # <--- Change This
+        target = rospy.wait_for_message("your_topic", Pose) # <--- To This
+
+
+        movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
+
+        self.client.send_goal(target) #<-- Can pass target directly since target is now PoseStamped
+
+        # Waits for the server to finish performing the action.
+        wait = self.client.wait_for_result()
+        # If the result doesn't arrive, assume the Server is not available
+        if not wait:
+            rospy.loger("Action server not available!")
+            rospy.signal_shutdown("Action server not available!")
+        else:
+        # Result of executing the action
+            print("Goal Reached")
+
+        
+
+if __name__ == '__main__':
+    try:
+        rospy.init_node('spaghetti_grasping_rgbd_execute', anonymous=True)
+        turtle = Turtlebot3()
+        turtle.commander()
+    except rospy.ROSInterruptException:
+        pass
+  ```  
+
+
 
 >Google Hint: rospy pose publisher
 
