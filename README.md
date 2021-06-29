@@ -126,36 +126,37 @@ Edit commander node to subscribe Pose message as follow
 def commander(self):
     print("process start")
     while not rospy.is_shutdown():
-        print("Enter target spearated with comma")
+      print("Enter target spearated with comma")
 
-        #target = input() # <--- Change This
-        target = rospy.wait_for_message("your_topic", Pose) # <--- To This
+      #target = input() # <--- Change This
+      target = rospy.wait_for_message("pose", Pose) # <--- To This
+      
 
+      movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
 
-        movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
+      self.client.send_goal(movebaseGoal)
 
-        self.client.send_goal(target) #<-- Can pass target directly since target is now Pose
-
-        # Waits for the server to finish performing the action.
-        wait = self.client.wait_for_result()
-        # If the result doesn't arrive, assume the Server is not available
-        if not wait:
-            rospy.loger("Action server not available!")
-            rospy.signal_shutdown("Action server not available!")
-        else:
-        # Result of executing the action
-            print("Goal Reached")
-```            
+      # Waits for the server to finish performing the action.
+      wait = self.client.wait_for_result()
+      # If the result doesn't arrive, assume the Server is not available
+      if not wait:
+          rospy.loger("Action server not available!")
+          rospy.signal_shutdown("Action server not available!")
+      else:
+      # Result of executing the action
+          print("Goal Reached")
 ```
-def get_movebaseGoal_from(self,target_pose): #Now target_list become target_pose
+
+```
+def get_movebaseGoal_from(self,goal_pose): #Now target_list become Pose
     goal = MoveBaseGoal()
     goal.target_pose.header.frame_id = "map"
     goal.target_pose.header.stamp = rospy.Time.now()
-    goal.target_pose.pose.position.x = target_pose.position.x
-    goal.target_pose.pose.position.y = target_pose.position.y
-    goal.target_pose.pose.position.z = target_pose.position.z
+    goal.target_pose.pose.position.x = goal_pose.position.x
+    goal.target_pose.pose.position.y = goal_pose.position.y
+    goal.target_pose.pose.position.z = goal_pose.position.z
 
-    goal.target_pose.pose.orientation.w = target_pose.orientation.w
+    goal.target_pose.pose.orientation.w = goal_pose.orientation.w
     return goal
 ```
 Full code
@@ -189,42 +190,42 @@ class Turtlebot3():
     self.group.stop()
     self.group.clear_pose_targets()
 
-  def get_movebaseGoal_from(self,target_pose): #Now target_list become target_pose
+  def get_movebaseGoal_from(self,goal_pose): #Now target_list become Pose
     goal = MoveBaseGoal()
     goal.target_pose.header.frame_id = "map"
     goal.target_pose.header.stamp = rospy.Time.now()
-    goal.target_pose.pose.position.x = target_pose.position.x
-    goal.target_pose.pose.position.y = target_pose.position.y
-    goal.target_pose.pose.position.z = target_pose.position.z
+    goal.target_pose.pose.position.x = goal_pose.position.x
+    goal.target_pose.pose.position.y = goal_pose.position.y
+    goal.target_pose.pose.position.z = goal_pose.position.z
 
-    goal.target_pose.pose.orientation.w = target_pose.orientation.w
+    goal.target_pose.pose.orientation.w = goal_pose.orientation.w
     return goal
 
 
 
 
-    def commander(self):
-      print("process start")
-      while not rospy.is_shutdown():
-        print("Enter target spearated with comma")
+  def commander(self):
+    print("process start")
+    while not rospy.is_shutdown():
+      print("Enter target spearated with comma")
 
-        #target = input() # <--- Change This
-        target = rospy.wait_for_message("your_topic", Pose) # <--- To This
+      #target = input() # <--- Change This
+      target = rospy.wait_for_message("pose", Pose) # <--- To This
+      
 
+      movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
 
-        movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
+      self.client.send_goal(movebaseGoal)
 
-        self.client.send_goal(target) #<-- Can pass target directly since target is now PoseStamped
-
-        # Waits for the server to finish performing the action.
-        wait = self.client.wait_for_result()
-        # If the result doesn't arrive, assume the Server is not available
-        if not wait:
-            rospy.loger("Action server not available!")
-            rospy.signal_shutdown("Action server not available!")
-        else:
-        # Result of executing the action
-            print("Goal Reached")
+      # Waits for the server to finish performing the action.
+      wait = self.client.wait_for_result()
+      # If the result doesn't arrive, assume the Server is not available
+      if not wait:
+          rospy.loger("Action server not available!")
+          rospy.signal_shutdown("Action server not available!")
+      else:
+      # Result of executing the action
+          print("Goal Reached")
 
         
 
