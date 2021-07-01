@@ -1,6 +1,14 @@
 # ROS Tutorial
 > Tutorial for beginner who wants to start using ROS on Ubuntu
 
+## _PLAN LAYOUT_
+
+- [x] Basic Linux and ROS
+- [ ] How to install ROS along the existing tutorial
+- [ ] publisher/subscriber for turtlesim
+- [ ] service server-client tutorial
+
+
 ## Topics
 1. Getting started with Linux
    - What is a Linux?
