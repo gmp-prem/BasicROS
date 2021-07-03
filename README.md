@@ -6,7 +6,7 @@
 - TF Transformation System 
 
 
-## Exercise
+## Homework2
 1. Launch Turtlebot3 with the singlePillar.world
 
 ```
@@ -15,12 +15,19 @@
 2. Extract the position of the pillar from the laser scan with respect to the robot.
 ```
 ```
-3. Implement a TF listener to transform the extracted point from
+
+3. Publish a visualization marker for RViz that shows the estimated position of the pillar.
+(easy) Publish the point in the sensor frame (rslidar) as an RViz marker. RViz
+will automatically transform the marker into the odom frame.
+http://wiki.ros.org/rviz/DisplayTypes/Marker
+OR
+(more difficult) Implement a TF listener to transform the extracted point from
 the laser frame to the odom frame.
 http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%
 2B%29
 ```
 ```
+
 
 4. Create a publisher on the topic /cmd_vel to be able to send a twist command to Turtlebot3
 ```
