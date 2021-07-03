@@ -1,354 +1,246 @@
-# ROS Tutorial
-> Tutorial for beginner who wants to start using ROS on Ubuntu
+# Sending Goals to Turtlebot3 Navigation Stack
+>Adapted From Sending Goals to the Navigation Stack --> https://hotblackrobotics.github.io/en/blog/2018/01/29/action-client-py/
 
-## _PLAN LAYOUT_
-
-- [x] Basic Linux and ROS
-- [ ] How to install ROS along the existing tutorial
-- [ ] publisher/subscriber for turtlesim
-- [ ] service server-client tutorial
-
-
-## Topics
-1. Getting started with Linux
-   - What is a Linux?
-   - Ubuntu interface
-   - Performing task on Ubuntu
-   - Basic commands
-2. Basic robot operating system (ROS)
-   - What is ROS?
-   - ROS concept
-
-## Getting started with Linux
-### _What is Linux?_
-[**Linux**](https://www.linux.com/what-is-linux/) is an open-source Unix-like OS that manages communication between hardward and software, since Linux is an open-source, many distributions(versions) have been developed, one of the most popular one is [**Ubuntu**](https://ubuntu.com/) we use today.
-
+## Navigation Stack --> navigation-ROSwiki
 <p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/interface.png" width="500" height="300">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-logo.png" width="120" height="120">
+<img src="https://user-images.githubusercontent.com/86387081/123408785-5fb8af00-d5e8-11eb-9712-c77ad8606a31.png" width="640" height="360" />
 </p>
 
-### _Ubuntu interface_
-**Desktop elements**
-
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-desktop-edited-fixed.png" width="500" height="300">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-launchpad.png" width="500" height="300">
-</p>
-
-### _Performing task on Ubuntu_
-**Shell** is a command-line interface that interprets what should the ubuntu perform from command of user, there are many shells out there but the default one of ubuntu is Bourne-Again shell or bash
-
-As a developer, most of time we spend on ubuntu doing tasks will use what we called **terminal**, terminal is a power tool that uses shell to interprets the command and it gives us ability to
-  - Navigating
-  - Manipulating
-  - Diagnosis
-  - More++
-
-You can start using **command prompt** or **terminal** by go to a launcher and type the following word and enter
+This tutorial will teach you how to send the simple goal to move_base node with python code.
+## ActionLib --> AcionLib-ROSwiki
+* goal
+* result
+* feedback
+## Try it yourself
+---
+Launch Turtlebot Simulation and Navigation
 ```
-terminal
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 ```
-or the another way is to use the short-cut which is way better and faster, just press `ctrl` + `alt` + `t`
-then your terminal should appear as shown below
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ubuntu-terminal.png" width="500" height="300">
-</p>
+---
 
-You can see that on the terminal there is a `hayashi@lab:~$`
-
-`hayashi` is the username indicated before @ symbol
-
-`lab` is the hostname indicated after @ symbol
-
-`~` is the directory you are working on (~ or "tilt" means the home directory)
-
-`$` is prompt symbol, this symbol will tell where the command you type begin
-
-**Basic commands**
-
-**ls**, ls will list what file are in the directory you are working on
+1. Create new package
 ```
-ls
+cd ~/your_ws/src
+catkin_create_pkg my_package std_msgs rospy roscpp
 ```
-
-**cd**, cd is the command to change the directory that you want to go to work
+2. Make scripts folder in src of the beginner_tutorials package
 ```
-cd ~/Desktop
-```
-
-If you want to edit the script or text file, Ubuntu has provided us the default text editor which is called **gedit**, of course there are more text editors, some text editor gives more functionality for coding such [visual studio code](https://code.visualstudio.com/docs/setup/linux), [vim](https://www.vim.org/), [nano](https://linuxize.com/post/how-to-use-nano-text-editor/#:~:text=GNU%20nano%20is%20an%20easy,%2D8%20encoding%2C%20and%20more.) and more
-```
-gedit my_text_editor
-```
-
-**sudo**, sudo stands for superuser do, this command gives ability to be an administrator or root privileges, some files could not be directly used local, so the sudo comes into this position
-
-example of sudo command, from the command below, you could see that the terminal will warn us about the permission to update file repository
-```
-apt update
-```
-
-to use this command properly, we need to append sudo in front of the command
-```
-sudo apt update
-```
-
-These are just the basic commands, if you would like to know more, here is the [link](https://www.hostinger.com/tutorials/linux-commands) to my recommend page to read about command on Linux
-
-### _Why Ubuntu on developing Robotics?_ :fire:
-- lightweightness, ubuntu is lightweight in its nature, ypu don't have to pay to get access, you can install along side with your existing operating system, just donwload, install and use!
-- the distribution of ubuntu is a long-term support (usually 5 years)
-- tons of community support, ubuntu has a great community whenever you have a problem, you could get help such as [ubuntu community](https://ubuntu.com/community) or [stackoverflow](https://stackoverflow.com/) and more communities++ out there
-
-## Basic robot operating system (ROS)
-
-### _What is ROS?_
-Robot operating system or [ROS](https://www.ros.org/) for short, ROS is an open-source framework for developing a robotics, ROS has a simple concept and easy to understand, ROS has a lot of communities, so many engineers and researchers use this framework to develop their own robot applications.
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ros-logo.jpg" width="400" height="200">
-</p>
-
-### _ROS concept_
-
-**ROS filesystem level**
-
-ROS filesystem level is the part of the ROS that consider the filesystem on the disk, the filesystem level mainly consists of packages, metapackages and message type, service types.
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosfilesystemlevel.png" width="650" height="300">
-</p>
-
-**ROS workspace**
-
-ROS workspace is where you modify, build, and install catkin packages, the workspace will usually contain build, devel and src folder
-- build is where the build file of the workspace is kept, all cache and information about build is here
-- devel stands for development, it is where the built target is stored, after the build configuration
-- src stands for source, it is where the source file of the workspace are kept, your script file, your package that follows the rule of the filesystem level 
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosworkspace.png" width="500" height="300">
-</p>
-
-**Let's create ROS workspace !**
-
-Before create the workspace, we must install the _catkin_tool_ package which contains the build tool for our workspace
-
-Open up your terminal using `ctrl` + `alt` + `t`, and get ROS repository that contains the catkin_tool
-```
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
-```
-Setup the key for the ROS repository
-```
-wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
-```
-Update the latest version of packages from repositories
-```
-sudo apt-get update
-```
-Install catkin_tool package
-```
-sudo apt-get install python-catkin-tools
-```
-For additional info about the catkin_tool package, please visit this [link](https://catkin-tools.readthedocs.io/en/latest/index.html)
-
-Now we are ready to create our ROS workspace !
-
-To create ROS workspace, open the terminal using shortcut `ctrl` + `alt` + `t` or you can go open the launchpad and type _terminal_ to open your terminal
-
-next, create the folder for your ROS workspace
-```
-mkdir -p ~/catkin_ws/src
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-01.png" width="500" height="275">
-</p>
-
-Go to the catkin_ws directory
-```
-cd catkin_ws
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-02.png" width="500" height="275">
-</p>
-
-Build your ROS workspace 
-```
-catkin build
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-03.png" width="500" height="275">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-04.png" width="500" height="275">
-</p>
-
-your workspace is built with this command then it is ready for your robot application, you could see 3 new folders which are build, devel and logs folder, the logs folder here will just log what catkin build did for you if you want to know what happened of last build
-
-- [ ] .bashrc file? [link](https://www.journaldev.com/41479/bashrc-file-in-linux#:~:text=bashrc%20file%20is%20a%20script,won't%20show%20the%20file.)
-
-After the workspace has created, we will source our workspace to bashrc file, let's go back to home directory and type this command on your terminal
-```
-cd && echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc && source ~/.bashrc
-```
-
-For additional info about creating ROS workspace, please visit this [link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
-
-**Create the your first package**
-
-Next we will create first ROS package, first let's change directory to src in catkin_ws
-```
-cd ~/catkin_ws/src
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-05.png" width="500" height="275">
-</p>
-
-Create a package
-```
-catkin_create_pkg my_package rospy roscpp std_msgs
-```
-
-Your package has created, you could check the current directory by using `ls` command, next you have to go back to catkin_ws to build your workspace
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-06.png" width="500" height="275">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-07.png" width="500" height="275">
-</p>
-
-`catkin_create_pkg my_package rospy roscpp std_msgs` has a form `catkin_create_pkg <package_name> [depend1] [depend2] [depend3]`
-
-- catkin_create_pkg is the command the create the package in your ROS workspace
-- package_name is the name of the package, you could name this package whatever you want
-- dependency means ROS packages that your package depends on
-
-```
-cd ..
-```
-Then
-```
-catkin build
-```
-Now you will see the terminal shows that the package _my_package_ has been built
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/createrosws-08.png" width="500" height="275">
-</p>
-
-For additional info about creating ROS package, please visit this [link](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
-
-**ROS Computational graph**
-
-ROS computational graph is where the data is processing in ROS workspace, this concept consist of nodes, Master, Parameter Server, messages, services, topics, and bags. [Here](https://github.com/gmp-prem/BasicROS/blob/main/Images/roscompgraph.png) is the link to full concept of computation graph, and [Here](http://wiki.ros.org/ROS/Concepts#:~:text=services%20in%20ROS.-,ROS%20Computation%20Graph%20Level,the%20Graph%20in%20different%20ways.) is the link to full detail
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rospubsub.png" width="500" height="120">
-</p>
-
-ROS message is a simplified messages description language for describing the data values (aka messages) that ROS nodes publish, it has a structure.
-
-Go to catkin_ws/src/my_package and create folder scripts
-```
-cd catkin_ws/src/my_package
-```
-Create a folder
-```
+cd ./my_package
 mkdir scripts
 ```
-Go to scripts
-```
-cd scripts
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosdiagram.png" width="500" height="120">
-</p>
-
-Now, we will create two python scripts for our first 2 ROS programs
-```
-touch publisher.py
-touch listener.py
-```
-Since you are going to execute the script, you are gonna need to make it executable
-```
-chmod +x publisher.py
-chmod +x listener.py
-```
-
-To start editing, you could use your favorite text editer, or gedit as you would like to
-
-Writing a publisher
+3. Put the following code in to ~/your_ws/src/beginner_tutorials/scripts
 ```
 #!/usr/bin/env python
-import rospy
-from std_msgs.msg import String
+# license removed for brevity
 
-def talker():
-    pub = rospy.Publisher('chatter', String, queue_size=10)
-    rospy.init_node('talker', anonymous=True)
-    rate = rospy.Rate(10) # 10hz
+import rospy
+
+# Brings in the SimpleActionClient
+import actionlib
+# Brings in the .action file and messages used by the move base action
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from geometry_msgs.msg import Pose
+
+
+
+class Turtlebot3():
+  def __init__(self):
+    # For movebase
+    # Create an action client called "move_base" with action definition file "MoveBaseAction"
+    self.client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
+
+    # Waits until the action server has started up and started listening for goals.
+    self.client.wait_for_server()
+
+
+  def trajectory_execute(self,pose): 
+      
+    self.group.set_pose_target(pose, end_effector_link="tool_ee_link")
+    self.group.go(wait=True)
+    self.group.stop()
+    self.group.clear_pose_targets()
+
+  def get_movebaseGoal_from(self,target_list):
+    goal = MoveBaseGoal()
+    goal.target_pose.header.frame_id = "map"
+    goal.target_pose.header.stamp = rospy.Time.now()
+    goal.target_pose.pose.position.x = target_list[0]
+    goal.target_pose.pose.position.y = target_list[1]
+    goal.target_pose.pose.position.z = target_list[2]
+
+    goal.target_pose.pose.orientation.w = 1.0
+    return goal
+
+
+
+
+  def commander(self):
+    print("process start")
     while not rospy.is_shutdown():
-        hello_str = "hello world %s" % rospy.get_time()
-        rospy.loginfo(hello_str)
-        pub.publish(hello_str)
-        rate.sleep()
+        print("Enter target spearated with comma")
+        target = input()
+        movebaseGoal = self.get_movebaseGoal_from(target)
+        self.client.send_goal(movebaseGoal)
+        # Waits for the server to finish performing the action.
+        wait = self.client.wait_for_result()
+        # If the result doesn't arrive, assume the Server is not available
+        if not wait:
+            rospy.loger("Action server not available!")
+            rospy.signal_shutdown("Action server not available!")
+        else:
+        # Result of executing the action
+            print("Goal Reached")
+        
 
 if __name__ == '__main__':
     try:
-        talker()
+        rospy.init_node('spaghetti_grasping_rgbd_execute', anonymous=True)
+        turtle = Turtlebot3()
+        turtle.commander()
     except rospy.ROSInterruptException:
         pass
+    
+
+```
+4. make the file executable
+```
+cd ~/your_ws/src/my_package/scripts
+chmod +x ./yourfilename.py
+```
+5. run the commander script
+```
+rosrun my_package yourfilename.py
 ```
 
-Writing a subscriber
+## Your Homework
+Make a publisher node publishing Pose message to this commander node
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/47204875/123738266-6fcdd880-d8df-11eb-8397-c69a73f99978.png"  />
+</p>
+
+Edit commander node to subscribe Pose message as follow
+
+```
+def commander(self):
+    print("process start")
+    while not rospy.is_shutdown():
+      print("Enter target spearated with comma")
+
+      #target = input() # <--- Change This
+      target = rospy.wait_for_message("pose", Pose) # <--- To This
+      
+
+      movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
+
+      self.client.send_goal(movebaseGoal)
+
+      # Waits for the server to finish performing the action.
+      wait = self.client.wait_for_result()
+      # If the result doesn't arrive, assume the Server is not available
+      if not wait:
+          rospy.loger("Action server not available!")
+          rospy.signal_shutdown("Action server not available!")
+      else:
+      # Result of executing the action
+          print("Goal Reached")
+```
+
+```
+def get_movebaseGoal_from(self,goal_pose): #Now target_list become Pose
+    goal = MoveBaseGoal()
+    goal.target_pose.header.frame_id = "map"
+    goal.target_pose.header.stamp = rospy.Time.now()
+    goal.target_pose.pose.position.x = goal_pose.position.x
+    goal.target_pose.pose.position.y = goal_pose.position.y
+    goal.target_pose.pose.position.z = goal_pose.position.z
+
+    goal.target_pose.pose.orientation.w = goal_pose.orientation.w
+    return goal
+```
+Full code
 ```
 #!/usr/bin/env python
+# license removed for brevity
+
 import rospy
-from std_msgs.msg import String
 
-def callback(data):
-    rospy.loginfo(rospy.get_caller_id() + " I heard %s ", data.data)
-    
-def listener():
+# Brings in the SimpleActionClient
+import actionlib
+# Brings in the .action file and messages used by the move base action
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from geometry_msgs.msg import Pose
 
-    # In ROS, nodes are uniquely named. If two nodes with the same
-    # name are launched, the previous one is kicked off. The
-    # anonymous=True flag means that rospy will choose a unique
-    # name for our 'listener' node so that multiple listeners can
-    # run simultaneously.
-    rospy.init_node('listener', anonymous=True)
 
-    rospy.Subscriber("chatter", String, callback)
+class Turtlebot3():
+  def __init__(self):
+    # For movebase
+    # Create an action client called "move_base" with action definition file "MoveBaseAction"
+    self.client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
 
-    # spin() simply keeps python from exiting until this node is stopped
-    rospy.spin()
+    # Waits until the action server has started up and started listening for goals.
+    self.client.wait_for_server()
+
+
+  def trajectory_execute(self,pose): 
+      
+    self.group.set_pose_target(pose, end_effector_link="tool_ee_link")
+    self.group.go(wait=True)
+    self.group.stop()
+    self.group.clear_pose_targets()
+
+  def get_movebaseGoal_from(self,goal_pose): #Now target_list become Pose
+    goal = MoveBaseGoal()
+    goal.target_pose.header.frame_id = "map"
+    goal.target_pose.header.stamp = rospy.Time.now()
+    goal.target_pose.pose.position.x = goal_pose.position.x
+    goal.target_pose.pose.position.y = goal_pose.position.y
+    goal.target_pose.pose.position.z = goal_pose.position.z
+
+    goal.target_pose.pose.orientation.w = goal_pose.orientation.w
+    return goal
+
+
+
+
+  def commander(self):
+    print("process start")
+    while not rospy.is_shutdown():
+      print("Enter target spearated with comma")
+
+      
+      target = rospy.wait_for_message("pose", Pose) 
+      
+
+      movebaseGoal = self.get_movebaseGoal_from(target) #target is a Pose message contaning position and orientation
+
+      self.client.send_goal(movebaseGoal)
+
+      # Waits for the server to finish performing the action.
+      wait = self.client.wait_for_result()
+      # If the result doesn't arrive, assume the Server is not available
+      if not wait:
+          rospy.loger("Action server not available!")
+          rospy.signal_shutdown("Action server not available!")
+      else:
+      # Result of executing the action
+          print("Goal Reached")
+
+        
 
 if __name__ == '__main__':
-    listener()
+    try:
+        rospy.init_node('spaghetti_grasping_rgbd_execute', anonymous=True)
+        turtle = Turtlebot3()
+        turtle.commander()
+    except rospy.ROSInterruptException:
+        pass
+  ```  
 
-```
-To run the code, please do the following
-```
-roscore
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/roscore.png" width="500" height="300">
-</p>
 
-Run the publisher node
-```
-rosrun my_package publisher.py
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/pub.png" width="500" height="300">
-</p>
 
-Run the subscriber node 
-```
-rosrun my_package listener.py
-```
-Here you can see that in the subsciber terminal, it will show something up
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/sub.png" width="500" height="300">
-</p>
+>Google Hint: rospy pose publisher
 
-**ROS Visualization tool**
-
-ROS Visulization (Rviz) is the ROS application, it provieds many advantages when you work with your robot such as robot model, sensor information, camera. Here is the [link](http://wiki.ros.org/rviz/Tutorials) to the full description from ROS wiki
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rviz_plugin_head.png" width="500" height="300">
-</p>
-
-Thank you very much
