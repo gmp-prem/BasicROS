@@ -29,13 +29,15 @@ http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%
 ```
 
 
-4. Create a publisher on the topic /cmd_vel to be able to send a twist command to Turtlebot3
+## Homework3
+
+
+1. Create a publisher on the topic /cmd_vel to be able to send a twist command to Turtlebot3
 ```
 ```
 
-5. Write a simple P controller that drives Turtlebot3 towards the pillar. 
-Remember to use ROS parameters for your controller gains (Lecture 2, Slide 22)!
-To ensure that the pillar is well visible in the laser scan, set the laser_scan_min_height to -0.2 and laser_scan_max_height to 1.0.
+2. Write a simple P controller that drives Turtlebot3 towards the pillar. 
+Remember to use ROS parameters for your controller gains 
 You can pass them as arguments to the turtlebot3_gazebo.launch
 ```
 ```
@@ -44,5 +46,5 @@ You can pass them as arguments to the turtlebot3_gazebo.launch
 
 
 
->Google Hint: rospy pose publisher
+>Hint: https://answers.ros.org/question/198843/need-explanation-on-sensor_msgslaserscanmsg/
 
