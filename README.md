@@ -4,7 +4,7 @@
 ## _PLAN LAYOUT_
 
 - [x] Basic Linux and ROS
-- [ ] How to install ROS along the existing tutorial
+- [ ] How to install ROS along the existing tutorial (IN DEVELOPMENT)
 - [ ] publisher/subscriber for turtlesim
 - [ ] service server-client tutorial
 
@@ -108,6 +108,32 @@ Robot operating system or [ROS](https://www.ros.org/) for short, ROS is an open-
 <p align="center">
   <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/ros-logo.jpg" width="400" height="200">
 </p>
+
+### _Install ROS on ubuntu_
+
+To install ROS on ubuntu, first you are going to open the terminal using `ctrl` + `alt` + `t` and `cd` to the home directory, then you are going to set your computer to accept software from ROS
+```
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+```
+Get the key from ROS to make sure you really get the ROS software from ROS
+```
+sudo apt install curl
+```
+```
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+```
+Update the repository on your computer
+```
+sudo apt-get update
+```
+Now the part of ROS, ROS provided many ways to install, but in this tutorial, I will just let you install the full version of ROS since you will get access to all tools and libraries in ROS
+```
+sudo apt install ros-melodic-desktop-full
+```
+Now, this command may take a while to install ROS depends on your quality of internet connection. After finish from install ROS, next we will set up the environment before use.
+
+================================= <<<<<<<
+
 
 ### _ROS concept_
 
