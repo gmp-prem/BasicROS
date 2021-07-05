@@ -8,7 +8,7 @@
 
 ## Preparation
 - Download Realated Files
-https://teams.microsoft.com/_#/school/files/General?threadId=19%3Ae41dbea835b646b8affa25fa7a1f7c58%40thread.tacv2&ctx=channel&context=DownloadFiles&rootfolder=%252Fsites%252FYaskawa-research%252FShared%2520Documents%252FGeneral%252FHW2%252FDownloadFiles
+https://drive.google.com/drive/folders/1MmvZWoe22qdzP9undzGr8FvS3xbCxXlt?usp=sharing
 
 
 - Add new launch file to launch the turtlebot3 gazebo with a singlePillarWorld.world
