@@ -7,11 +7,14 @@
 - TF Transformation System 
 
 ## Preparation
-- Download Realated Files
-https://drive.google.com/drive/folders/1MmvZWoe22qdzP9undzGr8FvS3xbCxXlt?usp=sharing
+- Download Realated Files:
+
+>https://drive.google.com/drive/folders/1MmvZWoe22qdzP9undzGr8FvS3xbCxXlt?usp=sharing
+
+![screenshot-nimbus-capture-2021 07 05-19_47_44](https://user-images.githubusercontent.com/55285546/124460196-06136a00-ddca-11eb-8175-d68e383f4b33.png)
 
 
-- Add new launch file to launch the turtlebot3 gazebo with a singlePillarWorld.world
+- Add new files to launch the turtlebot3 gazebo with a singlePillarWorld.world
 
 ```
 roscd turtlebot3_simulations
@@ -20,72 +23,15 @@ code .
 Your VScode workspace should look like this
 ![vscodeWS](https://user-images.githubusercontent.com/55285546/124456445-a87d1e80-ddc5-11eb-93b4-8b954f5297aa.png)
 
-- Create new file name singlePillarWorld.world in worlds folder and Copy the following code to the singlePillarWorld.world
-
-<details open>
-<summary>Code!</summary>
-
-```xml
-<?xml version="1.0" ?>
-<sdf version="1.4">
-  <world name="default">
-    <!-- A global light source -->
-    <include>
-      <uri>model://sun</uri>
-    </include>
-    <!-- A ground plane -->
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
-    <!-- Cylinder -->
-    <model name='unit_cylinder'>
-      <pose frame=''>1 1 0.5 0 -0 0</pose>
-      <link name='link'>
-        <inertial>
-          <mass>1</mass>
-          <inertia>
-            <ixx>0.145833</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>0.145833</iyy>
-            <iyz>0</iyz>
-            <izz>0.125</izz>
-          </inertia>
-        </inertial>
-        <collision name='collision'>
-          <geometry>
-            <cylinder>
-              <radius>0.5</radius>
-              <length>1</length>
-            </cylinder>
-          </geometry>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <cylinder>
-              <radius>0.5</radius>
-              <length>1</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <script>
-              <name>Gazebo/Grey</name>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-
-
-  </world>
-</sdf>
+- Add singlePillarWorld.world in worlds folder and turtlebot3_singlePillarWorld.launch in launch folder
+- Launch turtlebot3 with singlePillarWorld
 ```
-</details>
-
+roslaunch turtlebot3_gazebo turtlebot3_singlePillar.launch
+```
+- Launch Rviz Visualizer
+```
+roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
+```
 
 ## Homework2
 1. Launch Turtlebot3 with the singlePillar.world
