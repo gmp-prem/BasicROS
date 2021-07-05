@@ -4,7 +4,7 @@
 ## _PLAN LAYOUT_
 
 - [x] Basic Linux and ROS
-- [ ] How to install ROS along the existing tutorial (IN DEVELOPMENT)
+- [x] How to install ROS along the existing tutorial (IN DEVELOPMENT)
 - [ ] publisher/subscriber for turtlesim
 - [ ] service server-client tutorial
 
@@ -130,10 +130,34 @@ Now the part of ROS, ROS provided many ways to install, but in this tutorial, I 
 ```
 sudo apt install ros-melodic-desktop-full
 ```
-Now, this command may take a while to install ROS depends on your quality of internet connection. After finish from install ROS, next we will set up the environment before use.
+Now, this command may take a while to install ROS depends on your quality of internet connection. After finish from install ROS, next we will set up the environment before use. We are gonna open up the bash file and add this command to source the workspace, `cd` to the home directory
+```
+gedit .bashrc
+```
+```
+source /opt/ros/melodic/setup.bash
+```
+Save the text editor and close, then source the .bashrc file
+```
+source .bashrc
+```
+After that, these dependecies are important for building up the workspace for ROS
+```
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+```
+Next, we will install `rosdep`. Before we use the ROS tools, we need to have this rosdep to easily install system dependencies for source you want to compile and is required to run some core components in ROS
+```
+sudo apt install python-rosdep
+```
+Initilize the rosdep
+```
+sudo rosdep init
+```
+```
+rosdep update
+```
 
-================================= <<<<<<<
-
+Now, you have ROS installed on your ubuntu !
 
 ### _ROS concept_
 
