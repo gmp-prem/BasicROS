@@ -36,16 +36,12 @@ roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
 
 
 ## Homework2
-1. Launch Turtlebot3 with the singlePillar.world
 
-```
-```
-
-2. Extract the position of the pillar from the laser scan with respect to the robot.
+1. Extract the position of the pillar from the laser scan with respect to the robot.
 ```
 ```
 
-3. Publish a visualization marker for RViz that shows the estimated position of the pillar.
+2. Publish a visualization marker for RViz that shows the estimated position of the pillar.
 (easy) Publish the point in the sensor frame (rslidar) as an RViz marker. RViz
 will automatically transform the marker into the odom frame.
 http://wiki.ros.org/rviz/DisplayTypes/Marker
