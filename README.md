@@ -145,7 +145,7 @@ After that, these dependecies are important for building up the workspace for RO
 ```
 sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 ```
-Next, we will install `rosdep`. Before we use the ROS tools, we need to have this rosdep to easily install system dependencies for source you want to compile and is required to run some core components in ROS
+Next, we will install `rosdep`. Before we use the ROS tools, we need to have this rosdep to easily install system dependencies for source you want to compile and is required to run some core components in ROS. for full detail about the rosdep, please visit this [link](http://wiki.ros.org/rosdep)
 ```
 sudo apt install python-rosdep
 ```
