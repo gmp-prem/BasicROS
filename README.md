@@ -32,6 +32,8 @@ roslaunch turtlebot3_gazebo turtlebot3_singlePillar.launch
 ```
 roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
 ```
+![Screenshot from 2021-07-05 19-59-56](https://user-images.githubusercontent.com/55285546/124461526-b6ce3900-ddcb-11eb-9660-f369954c9451.png)
+
 
 ## Homework2
 1. Launch Turtlebot3 with the singlePillar.world
