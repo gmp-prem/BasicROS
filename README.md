@@ -4,9 +4,9 @@
 ## _PLAN LAYOUT_
 
 - [x] Basic Linux and ROS
-- [x] How to install ROS along the existing tutorial (IN DEVELOPMENT)
-- [ ] publisher/subscriber for turtlesim
-- [ ] service server-client tutorial
+- [x] How to install ROS along the existing tutorial
+- [ ] publisher/subscriber for turtlesim (IN DEVELOPMENT)
+- [ ] service server-client tutorial (NOT YET STARTED)
 
 
 ## Topics
