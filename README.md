@@ -37,8 +37,77 @@ roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
 
 ## Homework2
 
-1. Extract the position of the pillar from the laser scan with respect to the robot.
+1. Extract the closet (x,y) position of the pillar from the laser scan with respect to the laser coordinate.
+>the range and degree of the laser is in r-theta coordinate so some calculation is required.
 ```
+#!/usr/bin/env python
+# license removed for brevity
+
+import rospy
+
+# Brings in the SimpleActionClient
+import actionlib
+# Brings in the .action file and messages used by the move base action
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from geometry_msgs.msg import PoseStamped
+from sensor_msgs.msg import LaserScan
+
+from visualization_msgs.msg import Marker
+
+import numpy as np
+
+
+class LaserScanner():
+  def __init__(self, test_move = False):
+
+    self.pillar_marker = Marker()
+
+
+  def trajectory_execute(self,pose): 
+      
+    self.group.set_pose_target(pose, end_effector_link="tool_ee_link")
+    self.group.go(wait=True)
+    self.group.stop()
+    self.group.clear_pose_targets()
+
+  def get_pillar_pose_from(self,target_list):
+    
+    self.pillar_pose.pillar_pose.header.frame_id = "base_scan"
+    self.pillar_pose.pillar_pose.header.stamp = rospy.Time.now()
+    self.pillar_pose.pillar_pose.pose.position.x = target_list[0]
+    self.pillar_pose.pillar_pose.pose.position.y = target_list[1]
+    self.pillar_pose.pillar_pose.pose.position.z = target_list[2]
+
+    self.pillar_pose.target_pose.pose.orientation.w = 1.0
+    
+
+  def laser_callback(self,msg): 
+    
+    #-----------Put Your Code HERE--------------------#
+    
+    print(x_scan,y_scan)
+    
+
+  def read_scan(self):
+    print("process start")
+
+    #self.marker_pub = rospy.Publis('/scan', LaserScan, self.laser_callback)
+    self.marker_pub = rospy.Publisher('goal', Marker, queue_size = 100)
+    self.laser_sub = rospy.Subscriber('/scan', LaserScan, self.laser_callback)
+    
+    r = rospy.Rate(60) # 10hz 
+    while not rospy.is_shutdown():
+      #doint nothing here just looping
+      r.sleep()
+        
+
+if __name__ == '__main__':
+    try:
+        rospy.init_node('spaghetti_grasping_rgbd_execute', anonymous=True)
+        laser = LaserScanner()
+        laser.read_scan()
+    except rospy.ROSInterruptException:
+        pass
 ```
 
 2. Publish a visualization marker for RViz that shows the estimated position of the pillar.
@@ -51,6 +120,78 @@ the laser frame to the odom frame.
 http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%
 2B%29
 ```
+#!/usr/bin/env python
+# license removed for brevity
+
+import rospy
+
+# Brings in the SimpleActionClient
+import actionlib
+# Brings in the .action file and messages used by the move base action
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+from geometry_msgs.msg import PoseStamped
+from sensor_msgs.msg import LaserScan
+
+from visualization_msgs.msg import Marker
+
+import numpy as np
+
+
+class LaserScanner():
+  def __init__(self, test_move = False):
+
+    self.pillar_marker = Marker()
+
+
+  def trajectory_execute(self,pose): 
+      
+    self.group.set_pose_target(pose, end_effector_link="tool_ee_link")
+    self.group.go(wait=True)
+    self.group.stop()
+    self.group.clear_pose_targets()
+
+  def get_pillar_pose_from(self,target_list):
+    
+    self.pillar_pose.pillar_pose.header.frame_id = "base_scan"
+    self.pillar_pose.pillar_pose.header.stamp = rospy.Time.now()
+    self.pillar_pose.pillar_pose.pose.position.x = target_list[0]
+    self.pillar_pose.pillar_pose.pose.position.y = target_list[1]
+    self.pillar_pose.pillar_pose.pose.position.z = target_list[2]
+
+    self.pillar_pose.target_pose.pose.orientation.w = 1.0
+    
+
+  def laser_callback(self,msg): 
+    
+    #-----------Put Your Code HERE--------------------#
+    
+    
+    
+     #-----------Put Your Marker Publisher HERE--------------------#
+    
+    print(x_scan,y_scan)
+    
+
+  def read_scan(self):
+    print("process start")
+
+    #self.marker_pub = rospy.Publis('/scan', LaserScan, self.laser_callback)
+    self.marker_pub = rospy.Publisher('goal', Marker, queue_size = 100)
+    self.laser_sub = rospy.Subscriber('/scan', LaserScan, self.laser_callback)
+    
+    r = rospy.Rate(60) # 10hz 
+    while not rospy.is_shutdown():
+      #doint nothing here just looping
+      r.sleep()
+        
+
+if __name__ == '__main__':
+    try:
+        rospy.init_node('spaghetti_grasping_rgbd_execute', anonymous=True)
+        laser = LaserScanner()
+        laser.read_scan()
+    except rospy.ROSInterruptException:
+        pass
 ```
 
 ```
