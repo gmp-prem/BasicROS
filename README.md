@@ -17,7 +17,7 @@
 - Add new files to launch the turtlebot3 gazebo with a singlePillarWorld.world
 
 ```
-roscd turtlebot3_simulations
+roscd turtlebot3_gazebo
 code .
 ```
 Your VScode workspace should look like this
