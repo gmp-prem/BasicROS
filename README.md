@@ -53,7 +53,9 @@ http://wiki.ros.org/tf/Tutorials/Writing%20a%20tf%20listener%20%28C%2B%
 ```
 ```
 
-
+```
+rosrun my_package scanner.py
+```
 ## Homework3
 
 
