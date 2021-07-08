@@ -87,6 +87,24 @@ class LaserScanner():
     
     print(x_scan,y_scan)
     
+    
+    self.pillar_marker.header.frame_id = "base_scan"
+    self.pillar_marker.type = self.pillar_marker.SPHERE
+    self.pillar_marker.action = self.pillar_marker.ADD
+    self.pillar_marker.scale.x = 0.1
+    self.pillar_marker.scale.y = 0.1
+    self.pillar_marker.scale.z = 0.1
+    self.pillar_marker.color.a = 1.0
+    self.pillar_marker.color.r = 1.0
+    self.pillar_marker.color.g = 1.0
+    self.pillar_marker.color.b = 0.0
+    self.pillar_marker.pose.orientation.w = 1.0
+    self.pillar_marker.pose.position.x = x_scan
+    self.pillar_marker.pose.position.y = y_scan 
+    self.pillar_marker.pose.position.z = 0.0
+
+    self.marker_pub.publish(self.pillar_marker)
+    
 
   def read_scan(self):
     print("process start")
