@@ -1,5 +1,5 @@
 # High level control for Turtlebot3
->Adapted From Sending Goals to the Navigation Stack --> https://rsl.ethz.ch/education-students/lectures/ros.html
+>ETH Zurich ROS Tutorails --> https://rsl.ethz.ch/education-students/lectures/ros.html
 
 ## Theory
 - ROS publisher
