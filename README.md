@@ -37,7 +37,7 @@ roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
 
 ## Homework2
 
-1. Extract the closet (x,y) position of the pillar from the laser scan with respect to the laser coordinate.
+1. Extract the closest (x,y) position of the pillar from the laser scan with respect to the laser coordinate.
 >the range and degree of the laser is in r-theta coordinate so some calculation is required.
 ```
 #!/usr/bin/env python
