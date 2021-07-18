@@ -235,7 +235,7 @@ your workspace is built with this command then it is ready for your robot applic
 
 After the workspace has created, we will source our workspace to bashrc file, let's go back to home directory and type this command on your terminal
 ```
-cd && echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc && source ~/.bashrc
+cd ~ && echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc && source ~/.bashrc
 ```
 
 For additional info about creating ROS workspace, please visit this [link](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
