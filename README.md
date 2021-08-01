@@ -115,6 +115,7 @@ rosrun beginner xarm7_commander.py
 
 1. Add oreintation of the end effector as an input in euler angle relative to the world coordinate frame
 > Hint edit this part of commander
+> Note that ROS use fix axis rotation (roll,pitch,yaw --> red,green,blue axis)
 ```
 def get_pose_from_(self,target): # <-- add more argument or more object in target list
         goal = Pose()
@@ -123,18 +124,23 @@ def get_pose_from_(self,target): # <-- add more argument or more object in targe
         goal.position.y = target[1]
         goal.position.z = target[2]
         
+        quaternion = Some_Euler_to_Quaternion_Function(Euler Angle)
+        
+        #goal.orientation.x = quaternion[0] 
+        #goal.orientation.y = quaternion[1]
+        #goal.orientation.z = quaternion[2]
+        #goal.orientation.w = quaternion[3]
         
         
-        #goal.orientation.x = 1.0 
-        #goal.orientation.y = 0.0
-        #goal.orientation.z = 0.0
-        #goal.orientation.w = 0.0
-        
-        goal.orientation = Some_Euler_to_Quaternion_Function(Euler Angle)
         return goal
 ```
 
 > Google Hint : ros euler to quaternion
+
+2. Check by commanding the robot to move to hold up position you can find the position of the end effector in RVIZ
+![Screenshot from 2021-08-01 11-55-28](https://user-images.githubusercontent.com/47204875/127759407-658d809e-1925-4661-86fa-60cd8efdf462.png)
+
+
 
 
 
