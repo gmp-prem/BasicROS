@@ -61,42 +61,52 @@ catkin build
 source ~/.bashrc
 ```
 
-4. Check xarm-gazebo
+4. Launch xarm-gazebo
 ```
-roslaunch xarm_gazebo xarm7_beside_table.launch [run_demo:=true] [add_gripper:=true] [add_vacuum_gripper:=true] 
+roslaunch xarm_gazebo xarm7_beside_table.launch 
 ```
-4. Install dependencies
+5. On the other terminal, launch Xarm-Moveit-Gazebo 
 ```
-rosdep update
-rosdep install --from-paths . --ignore-src --rosdistro melodic -y
+roslaunch xarm7_moveit_config xarm7_moveit_gazebo.launch
 ```
-5. Build the package
-```
-cd ~/catkin_ws
-catkin_make
-source ~/.bashrc
-```
-6. First try out in RViz
-```
-roslaunch xarm_description xarm7_rviz_display.launch
-```
-7. Config ip address in launcher file
-```
-roscd xarm7_moveit_config/
-gedit realMove_exec.launch
-<arg name="robot_ip" default="192.168.1.xxx"/> 
-(current : 192.168.1.213)
-```
-8. Launch Xarm-Moveit
-```
-roslaunch xarm7_moveit_config realMove_exec.launch
-```
+6. Try Move the simulated robot with Moveit
+
 
 ## Tutorial
 
-### Command Xarm7 with Moveit-Python
-1. bring up the robot
+### Command Xarm7 with Moveit-Python Interface
+> official moveit guide: 
+> http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html
+
+1. Bring up the real robot
 ```
 roslaunch xarm7_moveit_config realMove_exec.launch
 ```
+or bring up the simulation robot with Moveit interface
+```
+roslaunch xarm7_moveit_config xarm7_moveit_gazebo.launch
+
+```
+2. Create new package for locating the commander script
+```
+cd ~/catkin_ws
+catkin_create_pkg beginner rospy roscppp
+catkin build
+cd ~/catkin_ws/src/beginner
+mkdir scripts
+cd ~/catkin_ws/src/beginner/scripts
+code .
+```
+3. In scripts folder, create new python file xarm7_commander.py (name is up to you) and add the following code to your file
+> files
+
+4. In terminal, make the script executable
+```
+chmod +x cd ~/catkin_ws/src/beginner/scripts/xarm7_commander.py
+```
+5. Run the commander scripts
+```
+rosrun beginner xarm7_commander.py
+```
+
 
