@@ -99,7 +99,7 @@ cd ~/catkin_ws/src/beginner/scripts
 code .
 ```
 3. In scripts folder, create new python file xarm7_commander.py (name is up to you) and add the following code to your file
-> files
+> https://drive.google.com/file/d/1wVBjbc_S27vWbqFxaZw-OkaOEE_XPNar/view?usp=sharing
 
 4. In terminal, make the script executable
 ```
@@ -109,5 +109,32 @@ chmod +x cd ~/catkin_ws/src/beginner/scripts/xarm7_commander.py
 ```
 rosrun beginner xarm7_commander.py
 ```
+
+
+## Homework
+
+1. Add oreintation of the end effector as an input in euler angle relative to the world coordinate frame
+> Hint edit this part of commander
+```
+def get_pose_from_(self,target): # <-- add more argument or more object in target list
+        goal = Pose()
+
+        goal.position.x = target[0]
+        goal.position.y = target[1]
+        goal.position.z = target[2]
+        
+        
+        
+        #goal.orientation.x = 1.0 
+        #goal.orientation.y = 0.0
+        #goal.orientation.z = 0.0
+        #goal.orientation.w = 0.0
+        
+        goal.orientation = Some_Euler_to_Quaternion_Function(Euler Angle)
+        return goal
+```
+
+> Google Hint : ros euler to quaternion
+
 
 
