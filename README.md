@@ -84,6 +84,7 @@ roslaunch xarm7_moveit_config realMove_exec.launch
 ```
 or bring up the simulation robot with Moveit interface
 ```
+roslaunch xarm_gazebo xarm7_beside_table.launch
 roslaunch xarm7_moveit_config xarm7_moveit_gazebo.launch
 
 ```
