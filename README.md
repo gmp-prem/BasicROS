@@ -138,7 +138,8 @@ def get_pose_from_(self,target): # <-- add more argument or more object in targe
 > Google Hint : ros euler to quaternion
 
 2. Check by commanding the robot to move to hold up position you can find the position of the end effector in RVIZ
-![Screenshot from 2021-08-01 11-55-28](https://user-images.githubusercontent.com/47204875/127759407-658d809e-1925-4661-86fa-60cd8efdf462.png)
+![Screenshot from 2021-08-01 13-35-58](https://user-images.githubusercontent.com/47204875/127759470-efde3965-d54a-48b5-a471-60f7d11b8afb.png)
+
 
 
 
