@@ -63,7 +63,7 @@ source ~/.bashrc
 
 4. Check xarm-gazebo
 ```
-$ roslaunch xarm_gazebo xarm7_beside_table.launch [run_demo:=true] [add_gripper:=true] [add_vacuum_gripper:=true] 
+roslaunch xarm_gazebo xarm7_beside_table.launch [run_demo:=true] [add_gripper:=true] [add_vacuum_gripper:=true] 
 ```
 4. Install dependencies
 ```
