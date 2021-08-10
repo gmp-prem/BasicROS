@@ -402,3 +402,24 @@ ROS Visulization (Rviz) is the ROS application, it provieds many advantages when
 </p>
 
 Thank you very much
+
+## Mutiple Workspace with catkin tool
+1. Create new work space with src folder (or copy src folder of other workspace)
+2. Create empty build and devel folder
+```
+cd ~/new_ws
+mkdir build
+mkdir devel
+```
+3. Initialize catkin workspace
+```
+catkin init -w .
+```
+4. Build the src of the workspace
+```
+catkin build
+```
+5. source the devel setup
+```
+source ~/new_ws/devel/setup.bash
+```
