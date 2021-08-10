@@ -91,3 +91,25 @@ rqt_graph
 <p align="center">
 <img src="https://user-images.githubusercontent.com/86387081/123276239-f41b0700-d53f-11eb-936c-c93ca759ef30.png" width="720" height="720" />
 </p>
+
+## Mutiple Workspace with catkin tool
+1. Create new work space with src folder (or copy src folder of other workspace)
+2. Create empty build and devel folder
+```
+cd ~/new_ws
+mkdir build
+mkdir devel
+```
+3. Initialize catkin workspace
+```
+catkin init -w .
+```
+4. Build the src of the workspace
+```
+catkin build
+```
+5. source the devel setup
+```
+source ~/new_ws/devel/setup.bash
+```
+
