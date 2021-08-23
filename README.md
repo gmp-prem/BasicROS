@@ -417,6 +417,7 @@ catkin init -w .
 ```
 4. Build the src of the workspace
 ```
+rosdep install --from-paths src --ignore-src -r -y
 catkin build
 ```
 5. source the devel setup
