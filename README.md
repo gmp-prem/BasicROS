@@ -407,7 +407,6 @@ Thank you very much
 1. Create new work space with src folder (or copy src folder of other workspace)
 2. Create empty build and devel folder
 ```
-mkdir ~/new_ws
 cd ~/new_ws
 mkdir build
 mkdir devel
