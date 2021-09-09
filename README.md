@@ -143,5 +143,17 @@ def get_pose_from_(self,target): # <-- add more argument or more object in targe
 
 
 
+## Tomato Simulation
+```
+roslaunch xarm_gazebo xarm7_beside_table.launch 
+```
+```
+roslaunch xarm7_moveit_config xarm7_moveit_gazebo.launch
+```
+```
+conda activate tomato
+roscd realsense2_camera/scripts/tomato
+python fixCameraDetection.py
+```
 
 
