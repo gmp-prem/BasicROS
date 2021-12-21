@@ -33,6 +33,8 @@ source ~/.bashrc
 ```
 roslaunch xarm_description xarm7_rviz_display.launch
 ```
+> Step 7&8 only for real robot
+
 7. Config ip address in launcher file
 ```
 roscd xarm7_moveit_config/
@@ -46,7 +48,7 @@ roslaunch xarm7_moveit_config realMove_exec.launch
 ```
 
 ### Gazebo-Moveit
-1. Follow real robot installation.
+1. Follow real robot installation except step 7&8.
 2. Download the 'table' 3D model.
 > open gazebo --> Insert --> Wait for database connection --> drag the Table to gazebo
 > ![Screenshot from 2021-08-01 11-55-28](https://user-images.githubusercontent.com/47204875/127757600-ddbb33b2-254c-4464-9828-f51cee5e022c.png)
