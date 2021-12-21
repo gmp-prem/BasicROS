@@ -143,7 +143,7 @@ def get_pose_from_(self,target): # <-- add more argument or more object in targe
 
 
 
-## Tomato Simulation
+## Add Virtual Camera
 ```
 roslaunch xarm_gazebo xarm7_beside_table.launch 
 ```
