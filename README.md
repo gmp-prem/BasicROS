@@ -115,7 +115,6 @@ rosrun beginner xarm7_commander.py
 
 1. Add oreintation of the end effector as an input in euler angle relative to the world coordinate frame
 > Hint edit this part of commander
-> Note that ROS use fix axis rotation (roll,pitch,yaw --> red,green,blue axis)
 ```
 def get_pose_from_(self,target): # <-- add more argument or more object in target list
         goal = Pose()
@@ -142,99 +141,10 @@ def get_pose_from_(self,target): # <-- add more argument or more object in targe
 
 
 
-
 ## Add Virtual Camera
 
-under ~/xarm_ros/xarm_description add xarm7_virtual_hand_camera.xacro
-```
-<?xml version='1.0' encoding='utf-8'?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="xarm7">
-  <!-- load xarm7 robot no gripper -->
-  <xacro:include filename="$(find xarm_description)/urdf/xarm7_robot.urdf.xacro" />
-   <!-- load xarm7 robot  gripper -->
-  <!-- <xacro:include filename="$(find xarm_description)/urdf/xarm7_with_gripper.xacro" /> -->
-   
-<!--Hand Camera -->
-<xacro:property name="hand_camera_name" value="hand_rsd435" />
-<joint name="hand2cam" type="fixed">
-        <parent link="link7" />
-        <child link="hand_rsd435" />
-        <origin xyz="0.05 0.0  0.0" rpy="0 0 0"/>
-</joint>
+1. under ~/xarm_ros/xarm_description add xarm7_virtual_hand_camera.xacro
+> https://drive.google.com/file/d/1a5tet8f5SHVwsSoi5mFjCeiatutRuMwq/view?usp=sharing
 
-
-<link name="hand_rsd435">
-      <visual>
-          <origin rpy="0 0 1.5708" xyz="0 0 0" />
-          <geometry>
-              <mesh filename="package://realsense2_description/meshes/d435.dae" />
-          </geometry>
-      </visual>
-      <collision>
-          <origin rpy="0 0 1.5708" xyz="0 0 0" />
-          <geometry>
-              <mesh filename="package://realsense2_description/meshes/d435.dae" />
-          </geometry>
-      </collision>
-      
-      <inertial>
-          <mass value="0.1" />
-          <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
-      </inertial>
-  </link>
-
-  <joint name="hand_cam2image" type="fixed">
-        <parent link="hand_rsd435" />
-        <child link="hand_rgb" />
-        <origin xyz="0.0 0.0 0.0" rpy="3.14159 -1.5708 0"/>
-  </joint>
-
-  <link name="hand_rgb">
-  </link>
-
-  <gazebo reference="hand_rgb">
-  <sensor name="hand_rsd435_camera" type="depth">
-    <update_rate>20</update_rate>
-    <camera>
-      <horizontal_fov>1.047198</horizontal_fov>
-      <image>
-        <width>1280</width>
-        <height>720</height>
-        <format>B8G8R8</format>
-      </image>
-      <clip>
-        <near>0.01</near>
-        <far>3</far>
-      </clip>
-    </camera>
-    <plugin name="hand_rsd435_controller" filename="libgazebo_ros_openni_kinect.so">
-      <baseline>0.2</baseline>
-      <alwaysOn>true</alwaysOn>
-      <updateRate>1.0</updateRate>
-      <cameraName>${hand_camera_name}_ir</cameraName>
-      <imageTopicName>/${hand_camera_name}/color/image_raw</imageTopicName>
-      <cameraInfoTopicName>/${hand_camera_name}/color/camera_info</cameraInfoTopicName>
-      <depthImageTopicName>/${hand_camera_name}/depth/image_raw</depthImageTopicName>
-      <depthImageInfoTopicName>/${hand_camera_name}/depth/camera_info</depthImageInfoTopicName>
-      <pointCloudTopicName>/${hand_camera_name}/depth/points</pointCloudTopicName>
-      <frameName>hand_rgb</frameName>
-      <pointCloudCutoff>0.01</pointCloudCutoff>
-      <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
-      <distortionK1>0.00000001</distortionK1>
-      <distortionK2>0.00000001</distortionK2>
-      <distortionK3>0.00000001</distortionK3>
-      <distortionT1>0.00000001</distortionT1>
-      <distortionT2>0.00000001</distortionT2>
-      <CxPrime>0</CxPrime>
-      <Cx>0</Cx>
-      <Cy>0</Cy>
-      <focalLength>0</focalLength>
-      <hackBaseline>0</hackBaseline>
-    </plugin>
-  </sensor>
-</gazebo>
-
-</robot>
-```
-
-
+2. edit gazebo bring up file 
+3. 
