@@ -142,11 +142,3 @@ def get_pose_from_(self,target): # <-- add more argument or more object in targe
 ![Screenshot from 2021-08-01 13-35-58](https://user-images.githubusercontent.com/47204875/127759470-efde3965-d54a-48b5-a471-60f7d11b8afb.png)
 
 
-
-## Add Virtual Camera
-
-1. under ~/xarm_ros/xarm_description add xarm7_virtual_hand_camera.xacro
-> https://drive.google.com/file/d/1a5tet8f5SHVwsSoi5mFjCeiatutRuMwq/view?usp=sharing
-
-2. edit gazebo bring up file 
-3. 
