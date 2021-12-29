@@ -1,144 +1,126 @@
-# Xarm 7 ROS
+# Utra ROS
 
 ## Installation
-> official site : https://github.com/xArm-Developer/xarm_ros
+> official site : https://github.com/UmbraTek/utra_ros
 
 ### Real Robot-Moveit
 1. Install moveit : 
 ```
 sudo apt install ros-melodic-moveit
 ```
+
 2. Create a catkin workspace.
-3. Build Ros-Xarm from src
+3. Build Ros-utra from src
 ```
-cd ~/catkin_ws/src
-git clone https://github.com/xArm-Developer/xarm_ros.git --recursive
-cd ~/catkin_ws/src/xarm_ros
-git pull
-git submodule sync
-git submodule update --init --remote
+cd ~/utra_ws/src
+git clone https://github.com/UmbraTek/utra_ros
 ```
 4. Install dependencies
 ```
+cd ~/utra_ws
 rosdep update
 rosdep install --from-paths . --ignore-src --rosdistro melodic -y
 ```
+4.5 Edit CMakeLists.txt file according for using catkin build tools
+
+> https://github.com/UmbraTek/utra_ros/issues/1
+
+
 5. Build the package
 ```
-cd ~/catkin_ws
+cd ~/utra_ws
 catkin build
+// Dont for get to source utra_ws/devel/setup.bash
 source ~/.bashrc
 ```
 6. First try out in RViz
 ```
-roslaunch xarm_description xarm7_rviz_display.launch
+roslaunch utra_description utra6_850_view.launch [gripper:=true] [vacuum_gripper:=true]
 ```
 > Step 7&8 only for real robot
 
-7. Config ip address in launcher file
+7. Add new moveit launch file
 ```
-roscd xarm7_moveit_config/
-gedit realMove_exec.launch
-<arg name="robot_ip" default="192.168.1.xxx"/> 
-(current : 192.168.1.213)
+roscd utra6_850_moveit_config/launch/
+gedit ./utra_bringup.launch
 ```
-8. Launch Xarm-Moveit
 ```
-roslaunch xarm7_moveit_config realMove_exec.launch
+<launch>
+    <arg  name="utra_ip" default="192.168.0.240"/>
+    <include file="$(find utra_controller)/launch/utra_server.launch">
+        <arg name="utra_ip" value="$(arg utra_ip)" />
+    </include>
+
+    <include file="$(find utra_controller)/launch/joint_trajectory_6.launch">
+        <arg name="utra_ns" value="utra6_850/arm_joint_controller/follow_joint_trajectory" />
+    </include>
+    
+    <include file="$(find utra_controller)/launch/joint_publisher_6.launch">
+        <arg name="utra_ns" value="utra/joint_states_850" />
+    </include>
+
+    <include file="$(find utra6_850_moveit_config)/launch/demo.launch">
+        <arg name="ompl" value="ompl_s"/>
+    </include>
+    
+</launch>
+```
+
+8. Launch Utra-Moveit
+```
+roslaunch utra6_850_moveit_config utra_brinup.launch
 ```
 
 ### Gazebo-Moveit
 1. Follow real robot installation except step 7&8.
-2. Download the 'table' 3D model.
-> open gazebo --> Insert --> Wait for database connection --> drag the Table to gazebo
-> ![Screenshot from 2021-08-01 11-55-28](https://user-images.githubusercontent.com/47204875/127757600-ddbb33b2-254c-4464-9828-f51cee5e022c.png)
-
-
-
-3. Install mimic-joint-plugin for gripper
+2. Launch utra-gazebo
 ```
-git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins.git
-cd ~/catkin_ws
-catkin build
-source ~/.bashrc
+roslaunch utra6_850_gazebo gazebo.launch
 ```
-
-4. Launch xarm-gazebo
+5. On the other terminal, launch Utra-Moveit-Gazebo 
 ```
-roslaunch xarm_gazebo xarm7_beside_table.launch 
-```
-5. On the other terminal, launch Xarm-Moveit-Gazebo 
-```
-roslaunch xarm7_moveit_config xarm7_moveit_gazebo.launch
+roslaunch utra6_850_moveit_config moveit_planning_execution.launch
 ```
 6. Try Move the simulated robot with Moveit
 
 
 ## Tutorial
 
-### Command Xarm7 with Moveit-Python Interface
+### Command Utra with Moveit-Python Interface
 > official moveit guide: 
 > http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html
 
 1. Bring up the real robot
 ```
-roslaunch xarm7_moveit_config realMove_exec.launch
+roslaunch utra6_850_moveit_config utra_brinup.launch
 ```
 or bring up the simulation robot with Moveit interface
 ```
-roslaunch xarm_gazebo xarm7_beside_table.launch
-roslaunch xarm7_moveit_config xarm7_moveit_gazebo.launch
-
+roslaunch utra6_850_gazebo gazebo.launch
+roslaunch utra6_850_moveit_config moveit_planning_execution.launch
 ```
 2. Create new package for locating the commander script
 ```
-cd ~/catkin_ws
-catkin_create_pkg beginner rospy roscppp
+cd ~/utra_ws
+catkin_create_pkg rospy_moveit rospy roscppp
 catkin build
-cd ~/catkin_ws/src/beginner
+cd ~/utra_ws/src/rospy_moveit
 mkdir scripts
-cd ~/catkin_ws/src/beginner/scripts
+cd ~/utra_ws/src/rospy_moveit/scripts
 code .
 ```
-3. In scripts folder, create new python file xarm7_commander.py (name is up to you) and add the following code to your file
-> https://drive.google.com/file/d/1wVBjbc_S27vWbqFxaZw-OkaOEE_XPNar/view?usp=sharing
+3. In scripts folder, create new python file utra_move.py (name is up to you) and add the following code to your file
+> https://drive.google.com/file/d/1BcHe7QT1tpZbk_1zk5zoaaJeQ35FSYEW/view?usp=sharing
 
 4. In terminal, make the script executable
 ```
-chmod +x cd ~/catkin_ws/src/beginner/scripts/xarm7_commander.py
+chmod +x cd ~/utra_ws/src/beginner/rospy_moveit/utra_move.py
 ```
 5. Run the commander scripts
 ```
-rosrun beginner xarm7_commander.py
+rosrun rospy_moveit utra_move.py
 ```
 
 
-## Homework
-
-1. Add oreintation of the end effector as an input in euler angle relative to the world coordinate frame
-> Hint edit this part of commander
-```
-def get_pose_from_(self,target): # <-- add more argument or more object in target list
-        goal = Pose()
-
-        goal.position.x = target[0]
-        goal.position.y = target[1]
-        goal.position.z = target[2]
-        
-        quaternion = Some_Euler_to_Quaternion_Function(Euler Angle)
-        
-        #goal.orientation.x = quaternion[0] 
-        #goal.orientation.y = quaternion[1]
-        #goal.orientation.z = quaternion[2]
-        #goal.orientation.w = quaternion[3]
-        
-        
-        return goal
-```
-
-> Google Hint : ros euler to quaternion
-
-2. Check by commanding the robot to move to hold up position you can find the position of the end effector in RVIZ
-![Screenshot from 2021-08-01 13-35-58](https://user-images.githubusercontent.com/47204875/127759470-efde3965-d54a-48b5-a471-60f7d11b8afb.png)
 
 
