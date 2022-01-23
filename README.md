@@ -70,6 +70,10 @@ gedit ./utra_bringup.launch
 ```
 roslaunch utra6_850_moveit_config utra_brinup.launch
 ```
+or
+```
+roslaunch utra6_550_moveit_config utra_550_brinup.launch
+```
 
 ### Gazebo-Moveit
 1. Follow real robot installation except step 7&8.
