@@ -67,6 +67,8 @@ gedit ./utra_bringup.launch
 ```
 
 8. Launch Utra-Moveit
+
+`The package is in /worksp/utra/src/utra_ros/...`
 ```
 roslaunch utra6_850_moveit_config utra_brinup.launch
 ```
