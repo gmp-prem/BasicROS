@@ -1,15 +1,7 @@
-# ROS Tutorial
-> Tutorial for beginner who wants to start using ROS on Ubuntu
+# ROS1 Tutorial
+> Tutorial for beginner who wants to start using ROS Noetic on Ubuntu 20 LTS
 
-## _PLAN LAYOUT_
-
-- [x] Basic Linux and ROS
-- [x] How to install ROS along the existing tutorial
-- [ ] publisher/subscriber for turtlesim (IN DEVELOPMENT)
-- [ ] service server-client tutorial (NOT YET STARTED)
-
-
-## Topics
+# Topics
 1. Getting started with Linux
    - What is a Linux?
    - Ubuntu interface
@@ -18,8 +10,11 @@
 2. Basic robot operating system (ROS)
    - What is ROS?
    - ROS concept
+   - ROS computational graph
+     - continuous data streams (topics)
+     - remote procedure calls (services) 
 
-## Getting started with Linux
+## Getting started with Linux OS
 ### _What is Linux?_
 [**Linux**](https://www.linux.com/what-is-linux/) is an open-source Unix-like OS that manages communication between hardward and software, since Linux is an open-source, many distributions(versions) have been developed, one of the most popular one is [**Ubuntu**](https://ubuntu.com/) we use today.
 
@@ -124,30 +119,30 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo ap
 ```
 Update the repository on your computer
 ```
-sudo apt-get update
+sudo apt update
 ```
 Now the part of ROS, ROS provided many ways to install, but in this tutorial, I will just let you install the full version of ROS since you will get access to all tools and libraries in ROS
 ```
-sudo apt install ros-melodic-desktop-full
+sudo apt install ros-noetic-desktop-full
 ```
-Now, this command may take a while to install ROS depends on your quality of internet connection. After finish from install ROS, next we will set up the environment before use. We are gonna open up the bash file and add this command to source the workspace, `cd` to the home directory
+Now, this command may take a while to install ROS depends on your quality of internet connection. After finish from installing ROS, next we will set up the environment before use. We are gonna open up the bash file and add this command to source the workspace, `cd` to the home directory
 ```
-gedit .bashrc
+gedit ~/.bashrc
 ```
 ```
-source /opt/ros/melodic/setup.bash
+source /opt/ros/noetic/setup.bash
 ```
 Save the text editor and close, then source the .bashrc file
 ```
-source .bashrc
+source ~/.bashrc
 ```
 After that, these dependecies are important for building up the workspace for ROS
 ```
-sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 ```
 Next, we will install `rosdep`. Before we use the ROS tools, we need to have this rosdep to easily install system dependencies for source you want to compile and is required to run some core components in ROS. for full detail about the rosdep, please visit this [link](http://wiki.ros.org/rosdep)
 ```
-sudo apt install python-rosdep
+sudo apt install python3-rosdep
 ```
 Initilize the rosdep
 ```
@@ -196,7 +191,7 @@ sudo apt-get update
 ```
 Install catkin_tool package
 ```
-sudo apt-get install python-catkin-tools
+sudo apt-get install python3-catkin-tools
 ```
 For additional info about the catkin_tool package, please visit this [link](https://catkin-tools.readthedocs.io/en/latest/index.html)
 
@@ -280,147 +275,3 @@ Now you will see the terminal shows that the package _my_package_ has been built
 </p>
 
 For additional info about creating ROS package, please visit this [link](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
-
-**ROS Computational graph**
-
-ROS computational graph is where the data is processing in ROS workspace, this concept consist of nodes, Master, Parameter Server, messages, services, topics, and bags. [Here](https://github.com/gmp-prem/BasicROS/blob/main/Images/roscompgraph.png) is the link to full concept of computation graph, and [Here](http://wiki.ros.org/ROS/Concepts#:~:text=services%20in%20ROS.-,ROS%20Computation%20Graph%20Level,the%20Graph%20in%20different%20ways.) is the link to full detail
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rospubsub.png" width="500" height="120">
-</p>
-
-ROS message is a simplified messages description language for describing the data values (aka messages) that ROS nodes publish, it has a structure.
-
-Go to catkin_ws/src/my_package and create folder scripts
-```
-cd catkin_ws/src/my_package
-```
-Create a folder
-```
-mkdir scripts
-```
-Go to scripts
-```
-cd scripts
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rosdiagram.png" width="500" height="120">
-</p>
-
-Now, we will create two python scripts for our first 2 ROS programs
-```
-touch publisher.py
-touch listener.py
-```
-Since you are going to execute the script, you are gonna need to make it executable
-```
-chmod +x publisher.py
-chmod +x listener.py
-```
-
-To start editing, you could use your favorite text editer, or gedit as you would like to
-
-Writing a publisher
-```
-#!/usr/bin/env python
-import rospy
-from std_msgs.msg import String
-
-def talker():
-    pub = rospy.Publisher('chatter', String, queue_size=10)
-    rospy.init_node('talker', anonymous=True)
-    rate = rospy.Rate(10) # 10hz
-    while not rospy.is_shutdown():
-        hello_str = "hello world %s" % rospy.get_time()
-        rospy.loginfo(hello_str)
-        pub.publish(hello_str)
-        rate.sleep()
-
-if __name__ == '__main__':
-    try:
-        talker()
-    except rospy.ROSInterruptException:
-        pass
-```
-
-Writing a subscriber
-```
-#!/usr/bin/env python
-import rospy
-from std_msgs.msg import String
-
-def callback(data):
-    rospy.loginfo(rospy.get_caller_id() + " I heard %s ", data.data)
-    
-def listener():
-
-    # In ROS, nodes are uniquely named. If two nodes with the same
-    # name are launched, the previous one is kicked off. The
-    # anonymous=True flag means that rospy will choose a unique
-    # name for our 'listener' node so that multiple listeners can
-    # run simultaneously.
-    rospy.init_node('listener', anonymous=True)
-
-    rospy.Subscriber("chatter", String, callback)
-
-    # spin() simply keeps python from exiting until this node is stopped
-    rospy.spin()
-
-if __name__ == '__main__':
-    listener()
-
-```
-To run the code, please do the following
-```
-roscore
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/roscore.png" width="500" height="300">
-</p>
-
-Run the publisher node
-```
-rosrun my_package publisher.py
-```
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/pub.png" width="500" height="300">
-</p>
-
-Run the subscriber node 
-```
-rosrun my_package listener.py
-```
-Here you can see that in the subsciber terminal, it will show something up
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/sub.png" width="500" height="300">
-</p>
-
-**ROS Visualization tool**
-
-ROS Visulization (Rviz) is the ROS application, it provieds many advantages when you work with your robot such as robot model, sensor information, camera. Here is the [link](http://wiki.ros.org/rviz/Tutorials) to the full description from ROS wiki
-<p align="center">
-  <img src="https://github.com/gmp-prem/BasicROS/blob/main/Images/rviz_plugin_head.png" width="500" height="300">
-</p>
-
-Thank you very much
-
-## Mutiple Workspace with catkin tool
-1. Create new work space with src folder (or copy src folder of other workspace)
-2. Create empty build and devel folder
-```
-cd ~/new_ws
-mkdir build
-mkdir devel
-```
-3. Initialize catkin workspace
-```
-catkin init -w .
-```
-4. Build the src of the workspace
-```
-rosdep install --from-paths src --ignore-src -r -y
-catkin build
-```
-5. source the devel setup
-```
-source ~/new_ws/devel/setup.bash
-```
